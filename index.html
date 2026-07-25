@@ -23,7 +23,7 @@
             border-bottom: 5px solid #b71c1c;
         }
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto;
             padding: 20px 20px 100px 20px;
             text-align: center;
@@ -32,6 +32,16 @@
             color: #333;
             margin-bottom: 15px;
         }
+        h3 {
+            color: #d32f2f;
+            text-align: left;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 2px solid #ffcdd2;
+            padding-bottom: 5px;
+        }
+
         /* Style untuk Kolom Pencarian Bergulir (Marquee Effect) */
         .search-container {
             position: relative;
@@ -57,7 +67,6 @@
             position: relative;
             z-index: 2;
         }
-        /* Efek teks berjalan menyamping di placeholder saat kosong */
         .search-box:placeholder-shown {
             color: transparent;
         }
@@ -78,7 +87,7 @@
             100% { transform: translate(-50%, -50%); }
         }
         
-        /* Style untuk Tombol Menu */
+        /* Style untuk Tombol Menu Utama (Hiragana & Katakana) */
         .menu-container {
             display: flex;
             flex-direction: column;
@@ -122,6 +131,32 @@
             background-color: #e65100;
             color: white;
         }
+
+        /* Style untuk Grid Bab (5 Kolom x 5 Baris ke bawah per buku) */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .btn-chapter {
+            background-color: white;
+            color: #d32f2f;
+            text-decoration: none;
+            padding: 12px 5px;
+            border: 2px solid #d32f2f;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .btn-chapter:hover, .btn-chapter:active {
+            background-color: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+        }
         
         /* Pesan jika pencarian tidak ditemukan */
         #no-result {
@@ -161,57 +196,65 @@
             
             <hr style="width: 100%; border: 1px solid #ddd; margin: 15px 0;">
 
-            <!-- Bagian Bab Buku (Bab 1 sampai Bab 50) -->
-            <a href="bab1.html" class="btn-menu">📖 Bab 1: Perkenalan & Profesi</a>
-            <a href="bab2.html" class="btn-menu">📖 Bab 2: Kata Penunjuk & Benda</a>
-            <a href="bab3.html" class="btn-menu">📖 Bab 3: Tempat & Belanja</a>
-            <a href="bab4.html" class="btn-menu">📖 Bab 4: Waktu & Kegiatan Sehari-hari</a>
-            <a href="bab5.html" class="btn-menu">📖 Bab 5: Perpindahan, Transportasi & Tanggal</a>
-            <a href="bab6.html" class="btn-menu">📖 Bab 6: Makanan, Minuman & Aktivitas</a>
-            <a href="bab7.html" class="btn-menu">📖 Bab 7: Alat, Memberi & Menerima</a>
-            <a href="bab8.html" class="btn-menu">📖 Bab 8: Kata Sifat (Na & I)</a>
-            <a href="bab9.html" class="btn-menu">📖 Bab 9: Kemampuan, Kesukaan & Alasan</a>
-            <a href="bab10.html" class="btn-menu">📖 Bab 10: Keberadaan (Arimasu / Imasu) & Posisi</a>
-            <a href="bab11.html" class="btn-menu">📖 Bab 11: Kuantitas & Satuan Hitung</a>
-            <a href="bab12.html" class="btn-menu">📖 Bab 12: Masa Lampau & Perbandingan</a>
-            <a href="bab13.html" class="btn-menu">📖 Bab 13: Ingin (Tai / Hoshii) & Tujuan Perjalanan</a>
-            <a href="bab14.html" class="btn-menu">📖 Bab 14: Kata Kerja Bentuk-Te & Permintaan</a>
-            <a href="bab15.html" class="btn-menu">📖 Bab 15: Izin, Larangan & Keadaan Sedang Berlangsung</a>
-            <a href="bab16.html" class="btn-menu">📖 Bab 16: Merangkaikan Kalimat & Urutan Kejadian</a>
-            <a href="bab17.html" class="btn-menu">📖 Bab 17: Kata Kerja Bentuk-Nai & Kewajiban</a>
-            <a href="bab18.html" class="btn-menu">📖 Bab 18: Bentuk Kamus & Kemampuan Melakukan Sesuatu</a>
-            <a href="bab19.html" class="btn-menu">📖 Bab 19: Pengalaman & Perubahan Keadaan</a>
-            <a href="bab20.html" class="btn-menu">📖 Bab 20: Percakapan Bentuk Biasa (Futsuukei)</a>
-            <a href="bab21.html" class="btn-menu">📖 Bab 21: Pendapat, Kutipan & Dugaan (Darou)</a>
-            <a href="bab22.html" class="btn-menu">📖 Bab 22: Kalimat Penjelas Benda & Anak Kalimat</a>
-            <a href="bab23.html" class="btn-menu">📖 Bab 23: Pengandaian Waktu (Toki)</a>
-            <a href="bab24.html" class="btn-menu">📖 Bab 24: Memberi & Menerima Bantuan (Kureru)</a>
-            <a href="bab25.html" class="btn-menu">📖 Bab 25: Pengandaian Kondisional (Tara) & Meskipun</a>
-            <a href="bab26.html" class="btn-menu">📖 Bab 26: Penjelasan Alasan & Ndesu</a>
-            <a href="bab27.html" class="btn-menu">📖 Bab 27: Kata Kerja Potensial (Bisa Melakukan)</a>
-            <a href="bab28.html" class="btn-menu">📖 Bab 28: Sambil (~nagara) & Kebiasaan</a>
-            <a href="bab29.html" class="btn-menu">📖 Bab 29: Keadaan Selesai/Tertinggal & Tujuan Pergerakan</a>
-            <a href="bab30.html" class="btn-menu">📖 Bab 30: Keadaan Persiapan (~te arimasu / okimasu)</a>
-            <a href="bab31.html" class="btn-menu">📖 Bab 31: Bentuk Maksud & Rencana (Tsumori / Yotei)</a>
-            <a href="bab32.html" class="btn-menu">📖 Bab 32: Saran, Kemungkinan (~deshou / kamoshiremasen)</a>
-            <a href="bab33.html" class="btn-menu">📖 Bab 33: Perintah, Larangan & Kutipan Ucapan</a>
-            <a href="bab34.html" class="btn-menu">📖 Bab 34: Sesuai Dengan (~toori ni) & Sesudah/Sebelum</a>
-            <a href="bab35.html" class="btn-menu">📖 Bab 35: Bentuk Syarat (~nara / ba)</a>
-            <a href="bab36.html" class="btn-menu">📖 Bab 36: Usaha Agar Menjadi (~you ni)</a>
-            <a href="bab37.html" class="btn-menu">📖 Bab 37: Kata Kerja Pasif (Ukemikei)</a>
-            <a href="bab38.html" class="btn-menu">📖 Bab 38: Nominalisasi (~no) & Hubungan Kata Sifat</a>
-            <a href="bab39.html" class="btn-menu">📖 Bab 39: Alasan & Sebab (~node)</a>
-            <a href="bab40.html" class="btn-menu">📖 Bab 40: Tanya Interogatif (~ka, ~ka douka) & Ukuran</a>
-            <a href="bab41.html" class="btn-menu">📖 Bab 41: Pemberian & Penerimaan (Keigo Dasar)</a>
-            <a href="bab42.html" class="btn-menu">📖 Bab 42: Tujuan Penggunaan (~tameni / niwa)</a>
-            <a href="bab43.html" class="btn-menu">📖 Bab 43: Kesan / Tampaknya (~soudesu)</a>
-            <a href="bab44.html" class="btn-menu">📖 Bab 44: Terlalu (~sugimasu) & Mudah/Susah Dilakukan</a>
-            <a href="bab45.html" class="btn-menu">📖 Bab 45: Pengandaian Keadaan (~baai wa, noni)</a>
-            <a href="bab46.html" class="btn-menu">📖 Bab 46: Baru Saja (~tokoro) & Perkiraan (~hazudesu)</a>
-            <a href="bab47.html" class="btn-menu">📖 Bab 47: Katanya (~soudesu) & Kesan Berdasarkan Indra</a>
-            <a href="bab48.html" class="btn-menu">📖 Bab 48: Kata Kerja Kausatif (Ekspresi Menyuruh)</a>
-            <a href="bab49.html" class="btn-menu">📖 Bab 49: Keigo (Bahasa Halus & Hormat / Sonkeigo)</a>
-            <a href="bab50.html" class="btn-menu">📖 Bab 50: Kenjougo (Bahasa Merendahkan Diri)</a>
+            <!-- KELOMPOK 1: Minna no Nihongo 1 (Bab 1 - 25) Format Grid 5x5 -->
+            <h3>📚 Minna no Nihongo 1 (Bab 1 - 25)</h3>
+            <div class="chapter-grid" data-group="mnn1">
+                <a href="bab1.html" class="btn-chapter">Bab 1</a>
+                <a href="bab2.html" class="btn-chapter">Bab 2</a>
+                <a href="bab3.html" class="btn-chapter">Bab 3</a>
+                <a href="bab4.html" class="btn-chapter">Bab 4</a>
+                <a href="bab5.html" class="btn-chapter">Bab 5</a>
+                <a href="bab6.html" class="btn-chapter">Bab 6</a>
+                <a href="bab7.html" class="btn-chapter">Bab 7</a>
+                <a href="bab8.html" class="btn-chapter">Bab 8</a>
+                <a href="bab9.html" class="btn-chapter">Bab 9</a>
+                <a href="bab10.html" class="btn-chapter">Bab 10</a>
+                <a href="bab11.html" class="btn-chapter">Bab 11</a>
+                <a href="bab12.html" class="btn-chapter">Bab 12</a>
+                <a href="bab13.html" class="btn-chapter">Bab 13</a>
+                <a href="bab14.html" class="btn-chapter">Bab 14</a>
+                <a href="bab15.html" class="btn-chapter">Bab 15</a>
+                <a href="bab16.html" class="btn-chapter">Bab 16</a>
+                <a href="bab17.html" class="btn-chapter">Bab 17</a>
+                <a href="bab18.html" class="btn-chapter">Bab 18</a>
+                <a href="bab19.html" class="btn-chapter">Bab 19</a>
+                <a href="bab20.html" class="btn-chapter">Bab 20</a>
+                <a href="bab21.html" class="btn-chapter">Bab 21</a>
+                <a href="bab22.html" class="btn-chapter">Bab 22</a>
+                <a href="bab23.html" class="btn-chapter">Bab 23</a>
+                <a href="bab24.html" class="btn-chapter">Bab 24</a>
+                <a href="bab25.html" class="btn-chapter">Bab 25</a>
+            </div>
+
+            <!-- KELOMPOK 2: Minna no Nihongo 2 (Bab 26 - 50) Format Grid 5x5 -->
+            <h3>📚 Minna no Nihongo 2 (Bab 26 - 50)</h3>
+            <div class="chapter-grid" data-group="mnn2">
+                <a href="bab26.html" class="btn-chapter">Bab 26</a>
+                <a href="bab27.html" class="btn-chapter">Bab 27</a>
+                <a href="bab28.html" class="btn-chapter">Bab 28</a>
+                <a href="bab29.html" class="btn-chapter">Bab 29</a>
+                <a href="bab30.html" class="btn-chapter">Bab 30</a>
+                <a href="bab31.html" class="btn-chapter">Bab 31</a>
+                <a href="bab32.html" class="btn-chapter">Bab 32</a>
+                <a href="bab33.html" class="btn-chapter">Bab 33</a>
+                <a href="bab34.html" class="btn-chapter">Bab 34</a>
+                <a href="bab35.html" class="btn-chapter">Bab 35</a>
+                <a href="bab36.html" class="btn-chapter">Bab 36</a>
+                <a href="bab37.html" class="btn-chapter">Bab 37</a>
+                <a href="bab38.html" class="btn-chapter">Bab 38</a>
+                <a href="bab39.html" class="btn-chapter">Bab 39</a>
+                <a href="bab40.html" class="btn-chapter">Bab 40</a>
+                <a href="bab41.html" class="btn-chapter">Bab 41</a>
+                <a href="bab42.html" class="btn-chapter">Bab 42</a>
+                <a href="bab43.html" class="btn-chapter">Bab 43</a>
+                <a href="bab44.html" class="btn-chapter">Bab 44</a>
+                <a href="bab45.html" class="btn-chapter">Bab 45</a>
+                <a href="bab46.html" class="btn-chapter">Bab 46</a>
+                <a href="bab47.html" class="btn-chapter">Bab 47</a>
+                <a href="bab48.html" class="btn-chapter">Bab 48</a>
+                <a href="bab49.html" class="btn-chapter">Bab 49</a>
+                <a href="bab50.html" class="btn-chapter">Bab 50</a>
+            </div>
         </div>
 
         <p id="no-result">⚠️ Maaf, materi yang kamu cari tidak ditemukan.</p>
@@ -222,7 +265,7 @@
         function searchMenu() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let container = document.getElementById('menuList');
-            let items = container.getElementsByClassName('btn-menu');
+            let items = container.getElementsByTagName('a');
             let noResult = document.getElementById('no-result');
             let foundCount = 0;
 
@@ -233,6 +276,21 @@
                     foundCount++;
                 } else {
                     items[i].style.display = "none";
+                }
+            }
+
+            // Sembunyikan atau tampilkan judul grup jika semua isi di dalamnya tersembunyi
+            let grids = container.getElementsByClassName('chapter-grid');
+            let headings = container.getElementsByTagName('h3');
+            
+            for(let g = 0; g < grids.length; g++) {
+                let visibleLinks = grids[g].querySelectorAll('a:not([style*="display: none"])');
+                if(visibleLinks.length === 0) {
+                    headings[g].style.display = "none";
+                    grids[g].style.display = "none";
+                } else {
+                    headings[g].style.display = "";
+                    grids[g].style.display = "";
                 }
             }
 
