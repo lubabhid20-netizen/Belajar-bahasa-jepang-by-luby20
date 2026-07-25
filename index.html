@@ -58,27 +58,7 @@
             position: relative;
             z-index: 2;
         }
-        /* Efek teks berjalan menyamping di placeholder saat kosong */
-        .search-box:placeholder-shown {
-            color: transparent;
-        }
-        .search-placeholder-scroll {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-            white-space: nowrap;
-            color: #888;
-            font-size: 16px;
-            pointer-events: none;
-            z-index: 1;
-            animation: marquee 10s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translate(0, -50%); }
-            100% { transform: translate(-50%, -50%); }
-        }
-        
+
         /* Style untuk Tombol Menu */
         .menu-container {
             display: flex;
