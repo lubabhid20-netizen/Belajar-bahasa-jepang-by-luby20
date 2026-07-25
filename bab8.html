@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minna no Nihongo Bab 8 + Audio & Furigana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 5px;
+        }
+        
+        /* Style untuk Flashcard Kosakata */
+        .flashcard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .flashcard {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 180px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            padding: 5px;
+        }
+        .flashcard:hover {
+            border-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+        }
+        .kanji-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .jp-text {
+            font-size: 14px;
+            color: #444;
+        }
+        .romaji {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .id-text {
+            font-size: 15px;
+            color: #d32f2f;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Style untuk Tata Bahasa & Furigana */
+        .grammar-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .grammar-pattern {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0d47a1;
+        }
+        .grammar-box ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        .grammar-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        /* Styling untuk tag ruby (Furigana) */
+        ruby {
+            ruby-align: center;
+        }
+        rt {
+            font-size: 0.65em;
+            color: #d32f2f;
+            font-weight: normal;
+        }
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+        }
+        table.grammar-table th, table.grammar-table td {
+            border: 1px solid #90caf9;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+        table.grammar-table th {
+            background-color: #bbdefb;
+            color: #0d47a1;
+        }
+
+        /* Style untuk Header Kategori Kosakata */
+        .vocab-category {
+            background-color: #fce4e4;
+            color: #d32f2f;
+            padding: 8px 15px;
+            border-left: 5px solid #d32f2f;
+            border-radius: 4px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #b71c1c; padding: 10px;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: bold; margin-left: 15px;">⬅ Kembali ke Menu</a>
+    </div>
+    
+    <div class="container">
+        <h2>Bab 8 (第 8 課)</h2>
+        <p>Mari belajar Kata Sifat (Keiyoushi) bentuk -Na dan -I serta cara menerangkannya! Klik pada kartu untuk mendengar suara dan melihat artinya.</p>
+
+        <!-- Bagian Kosakata (Kotoba) -->
+        <h3>Kosakata (ことば)</h3>
+        <p>🔊 Klik kartu untuk memutar audio & melihat arti bahasa Indonesia.</p>
+
+        <!-- KELOMPOK 1: KATA SIFAT NA (NA-KEIYOUSHI) -->
+        <div class="vocab-category">🌟 Kata Sifat-Na (Na-Keiyoushi)</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'ハンサム')"><div class="kanji-text">ハンサム[な]</div><div class="jp-text">ハンサム</div><div class="romaji">(hansamu)</div><div class="id-text">Tampan / Gagah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'きれい')"><div class="kanji-text">きれい[な]</div><div class="jp-text">きれい</div><div class="romaji">(kirei)</div><div class="id-text">Cantik / Bersih</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しずか')"><div class="kanji-text">静か[な]</div><div class="jp-text">しずか</div><div class="romaji">(shizuka)</div><div class="id-text">Sunyi / Tenang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'にぎやか')"><div class="kanji-text">賑やか[な]</div><div class="jp-text">にぎやか</div><div class="romaji">(nigiyaka)</div><div class="id-text">Ramai</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ゆうめい')"><div class="kanji-text">有名[な]</div><div class="jp-text">ゆうめい</div><div class="romaji">(yuumei)</div><div class="id-text">Terkenal</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しんせつ')"><div class="kanji-text">親切[な]</div><div class="jp-text">しんせつ</div><div class="romaji">(shinsetsu)</div><div class="id-text">Baik hati</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'げんき')"><div class="kanji-text">元気[な]</div><div class="jp-text">げんき</div><div class="romaji">(genki)</div><div class="id-text">Sehat / Segar</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ひま')"><div class="kanji-text">暇[な]</div><div class="jp-text">ひま</div><div class="romaji">(hima)</div><div class="id-text">Senggang / Luang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'べんり')"><div class="kanji-text">便利[な]</div><div class="jp-text">べんり</div><div class="romaji">(benri)</div><div class="id-text">Praktis</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'すてき')"><div class="kanji-text">素敵[な]</div><div class="jp-text">すてき</div><div class="romaji">(suteki)</div><div class="id-text">Bagus / Indah</div></div>
+        </div>
+
+        <!-- KELOMPOK 2: KATA SIFAT I (I-KEIYOUSHI) -->
+        <div class="vocab-category">✨ Kata Sifat-I (I-Keiyoushi)</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'おおきい')"><div class="kanji-text">大きい</div><div class="jp-text">おおきい</div><div class="romaji">(ookii)</div><div class="id-text">Besar</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ちいさい')"><div class="kanji-text">小さい</div><div class="jp-text">ちいさい</div><div class="romaji">(chiisai)</div><div class="id-text">Kecil</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あたらしい')"><div class="kanji-text">新しい</div><div class="jp-text">あたらしい</div><div class="romaji">(atarashii)</div><div class="id-text">Baru</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ふるい')"><div class="kanji-text">古い</div><div class="jp-text">ふるい</div><div class="romaji">(furui)</div><div class="id-text">Lama / Tua (benda)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いい')"><div class="kanji-text">いい</div><div class="jp-text">いい</div><div class="romaji">(ii / yoi)</div><div class="id-text">Baik / Bagus</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'わるい')"><div class="kanji-text">悪い</div><div class="jp-text">わるい</div><div class="romaji">(warui)</div><div class="id-text">Buruk / Jelek</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あつい')"><div class="kanji-text">暑い / 熱い</div><div class="jp-text">あつい</div><div class="romaji">(atsui)</div><div class="id-text">Panas</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'さむい')"><div class="kanji-text">寒い</div><div class="jp-text">さむい</div><div class="romaji">(samui)</div><div class="id-text">Dingin (udara)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'つめたい')"><div class="kanji-text">冷たい</div><div class="jp-text">つめたい</div><div class="romaji">(tsumetai)</div><div class="id-text">Dingin (suhu benda)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'むずかしい')"><div class="kanji-text">難しい</div><div class="jp-text">むずかしい</div><div class="romaji">(muzukashii)</div><div class="id-text">Sulit / Susah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'やさしい')"><div class="kanji-text">易しい</div><div class="jp-text">やさしい</div><div class="romaji">(yasashii)</div><div class="id-text">Mudah / Gampang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'たかい')"><div class="kanji-text">高い</div><div class="jp-text">たかい</div><div class="romaji">(takai)</div><div class="id-text">Mahal / Tinggi</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'やすい')"><div class="kanji-text">安い</div><div class="jp-text">やすい</div><div class="romaji">(yasui)</div><div class="id-text">Murah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ひくい')"><div class="kanji-text">低い</div><div class="jp-text">ひくい</div><div class="romaji">(hikui)</div><div class="id-text">Rendah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おもしろい')"><div class="kanji-text">面白い</div><div class="jp-text">おもしろい</div><div class="romaji">(omoshiroi)</div><div class="id-text">Menarik / Seru</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おいしい')"><div class="kanji-text">美味しい</div><div class="jp-text">おいしい</div><div class="romaji">(oishii)</div><div class="id-text">Enak / Lezat</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いそがしい')"><div class="kanji-text">忙しい</div><div class="jp-text">いそがしい</div><div class="romaji">(isogashii)</div><div class="id-text">Sibuk</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'たのしい')"><div class="kanji-text">楽しい</div><div class="jp-text">たのしい</div><div class="romaji">(tanoshii)</div><div class="id-text">Senang / Menyenangkan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しろい')"><div class="kanji-text">白い</div><div class="jp-text">しろい</div><div class="romaji">(shiroi)</div><div class="id-text">Putih</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'くろい')"><div class="kanji-text">黒い</div><div class="jp-text">くろい</div><div class="romaji">(kuroi)</div><div class="id-text">Hitam</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あかい')"><div class="kanji-text">赤い</div><div class="jp-text">あかい</div><div class="romaji">(akai)</div><div class="id-text">Merah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あおい')"><div class="kanji-text">青い</div><div class="jp-text">あおい</div><div class="romaji">(aoi)</div><div class="id-text">Biru</div></div>
+        </div>
+
+        <!-- KELOMPOK 3: BENDA LINGKUNGAN & KETERANGAN -->
+        <div class="vocab-category">🏙️ Lingkungan, Keterangan & Ungkapan</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'さくら')"><div class="kanji-text">桜</div><div class="jp-text">さくら</div><div class="romaji">(sakura)</div><div class="id-text">Bunga Sakura</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'やま')"><div class="kanji-text">山</div><div class="jp-text">やま</div><div class="romaji">(yama)</div><div class="id-text">Gunung</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'まち')"><div class="kanji-text">町</div><div class="jp-text">まち</div><div class="romaji">(machi)</div><div class="id-text">Kota</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'たべもの')"><div class="kanji-text">食べ物</div><div class="jp-text">たべもの</div><div class="romaji">(tabemono)</div><div class="id-text">Makanan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ところ')"><div class="kanji-text">所</div><div class="jp-text">ところ</div><div class="romaji">(tokoro)</div><div class="id-text">Tempat</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'りょう')"><div class="kanji-text">寮</div><div class="jp-text">りょう</div><div class="romaji">(ryou)</div><div class="id-text">Asrama</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'レストラン')"><div class="kanji-text">レストラン</div><div class="jp-text">レストラン</div><div class="romaji">(resutoran)</div><div class="id-text">Restoran</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'せいかつ')"><div class="kanji-text">生活</div><div class="jp-text">せいかつ</div><div class="romaji">(seikatsu)</div><div class="id-text">Kehidupan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おしごと')"><div class="kanji-text">お仕事</div><div class="jp-text">おしごと</div><div class="romaji">(oshigoto)</div><div class="id-text">Pekerjaan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'どう')"><div class="kanji-text">どう</div><div class="jp-text">どう</div><div class="romaji">(dou)</div><div class="id-text">Bagaimana</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'どんな')"><div class="kanji-text">どんな～</div><div class="jp-text">どんな～</div><div class="romaji">(donna ~)</div><div class="id-text">Yang bagaimana ~</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'とても')"><div class="kanji-text">とても</div><div class="jp-text">とても</div><div class="romaji">(totemo)</div><div class="id-text">Sangat</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あまり')"><div class="kanji-text">あまり</div><div class="jp-text">あまり</div><div class="romaji">(amari)</div><div class="id-text">Tidak begitu (diikuti negatif)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'そして')"><div class="kanji-text">그리고</div><div class="jp-text">そして</div><div class="romaji">(soshite)</div><div class="id-text">Dan / Kemudian</div></div>
+        </div>
+
+        <br><br>
+
+        <!-- Bagian Tata Bahasa (Bunpou) Bab 8 dengan Furigana -->
+        <h2>Tata Bahasa (ぶんぽう)</h2>
+        
+        <div class="grammar-box">
+            <div class="grammar-pattern">1. Pengantar Kata Sifat (Keiyoushi)</div>
+            <p>Kata Sifat dalam bahasa Jepang berfungsi sebagai predikat untuk menunjukkan kondisi benda atau digunakan langsung untuk menerangkan kata benda. Terdapat dua jenis Kata Sifat: <b>Kata Sifat-Na</b> dan <b>Kata Sifat-I</b>.</p>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">2. Kata Benda は Kata Sifat [な] です / Kata Benda は Kata Sifat い です (Positif & Negatif)</div>
+            <p>Kalimat positif non-lampau diakhiri dengan <b>です</b>. Kata Sifat-Na disambung dengan <i>desu</i> tanpa *na*, sedangkan Kata Sifat-I langsung disambung dengan *desu*.</p>
+            <ul>
+                <li>
+                    Contoh Positif (Na):<br>
+                    ワット<ruby>先生<rt>せんせい</rt></ruby> は <ruby>親切<rt>しんせつ</rt></ruby> <b>です</b>。<br>
+                    👉 Bapak Watt baik hati.
+                </li>
+                <br>
+                <li>
+                    Contoh Positif (I):<br>
+                    <ruby>富士山<rt>ふじさん</rt></ruby> は <ruby>高<rt>たか</rt></ruby>い <b>です</b>。<br>
+                    👉 Gunung Fuji tinggi.
+                </li>
+                <br>
+                <li>
+                    <b>Bentuk Negatif (Penjelasan Terpisah: じゃありません vs ではありません):</b>
+                    <br><br>
+                    <b>A. じゃありません (Ja Arimasen)</b><br>
+                    Bentuk negatif yang paling sering digunakan dalam percakapan sehari-hari, situasi santai, atau tidak resmi (artinya: <i>bukan / tidak</i>).<br>
+                    <i>Contoh Kata Sifat-Na:</i><br>
+                    あそこ は <ruby>静<rt>しず</rt></ruby>か <b>じゃありません</b>。<br>
+                    👉 Di sana tidak sunyi.
+                    <br><br>
+                    <b>B. ではありません (Dewa Arimasen)</b><br>
+                    Bentuk negatif yang sifatnya lebih formal, resmi, atau digunakan dalam tulisan/pidato resmi (artinya: <i>bukan / tidak</i> bentuk sopan/resmi).<br>
+                    <i>Contoh Kata Sifat-Na:</i><br>
+                    あそこ は <ruby>静<rt>しず</rt></ruby>か <b>ではありません</b>。<br>
+                    👉 Di sana tidak sunyi (bentuk resmi).
+                    <br><br>
+                    <b>C. Negatif Kata Sifat-I:</b><br>
+                    Untuk Kata Sifat-I, huruf <b>い</b> di akhir diubah menjadi <b>くないです</b>.<br>
+                    <i>Contoh:</i> この <ruby>本<rt>ほん</rt></ruby> は おもしろ<b>くないです</b>。<br>
+                    👉 Buku ini tidak menarik.<br>
+                    <i>*Catatan khusus:* Negatif untuk <b>いいです</b> adalah <b>よくないです</b>.</i>
+                </li>
+            </ul>
+
+            <h4 style="color: #0d47a1; margin-top: 15px;">Tabel Rangkuman Perubahan Bentuk:</h4>
+            <table class="grammar-table">
+                <tr>
+                    <th>Bentuk</th>
+                    <th>Kata Sifat-Na (<ruby>親切<rt>しんせつ</rt></ruby>)</th>
+                    <th>Kata Sifat-I (<ruby>高<rt>たか</rt></ruby>い)</th>
+                </tr>
+                <tr>
+                    <td><b>Positif Non-Lampau</b></td>
+                    <td><ruby>親切<rt>しんせつ</rt></ruby>です</td>
+                    <td><ruby>高<rt>たか</rt></ruby>いです</td>
+                </tr>
+                <tr>
+                    <td><b>Negatif Non-Lampau (Santai/Harian)</b></td>
+                    <td><ruby>親切<rt>しんせつ</rt></ruby><b>じゃありません</b></td>
+                    <td><ruby>高<rt>たか</rt></ruby>くないです</td>
+                </tr>
+                <tr>
+                    <td><b>Negatif Non-Lampau (Resmi/Formal)</b></td>
+                    <td><ruby>親切<rt>しんせつ</rt></ruby><b>ではありません</b></td>
+                    <td><ruby>高<rt>たか</rt></ruby>くないです</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">3. Kata Sifat [な] Kata Benda / Kata Sifat い Kata Benda (Menerangkan Kata Benda)</div>
+            <p>Jika Kata Sifat digunakan untuk menerangkan Kata Benda, posisinya diletakkan di depan Kata Benda tersebut. Kata Sifat-Na wajib diikuti partikel <b>な</b> di tengah, sedangkan Kata Sifat-I langsung digabung.</p>
+            <ul>
+                <li>
+                    Contoh Sifat-Na:<br>
+                    ワット<ruby>先生<rt>せんせい</rt></ruby> は <ruby>親切<rt>しんせつ</rt></ruby> <b>な</b> <ruby>先生<rt>せんせい</rt></ruby> です。<br>
+                    👉 Bapak Watt adalah guru yang baik hati.
+                </li>
+                <br>
+                <li>
+                    Contoh Sifat-I:<br>
+                    <ruby>富士山<rt>ふじさん</rt></ruby> は <ruby>高<rt>たか</rt></ruby>い <ruby>山<rt>やま</rt></ruby> です。<br>
+                    👉 Gunung Fuji adalah gunung yang tinggi.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">4. ~ が、~ (Tetapi)</div>
+            <p>Partikel <b>が (ga)</b> digunakan untuk menyambungkan dua kalimat yang menyatakan pertentangan/paradoks (misal: bagian depan positif, bagian belakang negatif atau sebaliknya).</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    <ruby>日本<rt>にほん</rt></ruby>の <ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby> は おいしい <b>ですが</b>、<ruby>高<rt>たか</rt></ruby>いです。<br>
+                    👉 Makanan Jepang enak, tetapi mahal.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">5. とても / あまり (Kata Keterangan Tingkat)</div>
+            <p><b>とても (totemo)</b> berarti "sangat" (digunakan pada kalimat positif), sedangkan <b>あまり (amari)</b> berarti "tidak begitu" (wajib diikuti dengan bentuk kalimat negatif).</p>
+            <ul>
+                <li>
+                    Contoh (とても):<br>
+                    北京 は <b>とても</b> <ruby>寒<rt>さむ</rt></ruby>い です。<br>
+                    👉 Beijing sangat dingin.
+                </li>
+                <br>
+                <li>
+                    Contoh (あまり + Negatif):<br>
+                    シャンハイ は <b>あまり</b> <ruby>寒<rt>さむ</rt></ruby>くありません。<br>
+                    👉 Shanghai tidak begitu dingin.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">6. Kata Benda は どうですか</div>
+            <p>Digunakan untuk menanyakan kesan, pendapat, atau kondisi mengenai suatu tempat yang telah dikunjungi atau hal yang telah dialami.</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan & Jawaban:<br>
+                    <ruby>日本<rt>にほん</rt></ruby>の <ruby>生活<rt>せいかつ</rt></ruby> は <b>どうですか</b>。<br>
+                    👉 Bagaimana kehidupan di Jepang?<br>
+                    ……<ruby>楽<rt>たの</rt></ruby>しい です。<br>
+                    👉 ……Menyenangkan.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">7. Kata Benda₁ は どんな Kata Benda₂ ですか</div>
+            <p><b>どんな (donna)</b> adalah kata tanya untuk menanyakan sifat, ciri-ciri, atau keadaan khusus dari suatu benda atau tempat.</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan & Jawaban:<br>
+                    <ruby>奈良<rt>なら</rt></ruby> は <b>どんな</b> <ruby>町<rt>まち</rt></ruby> ですか。<br>
+                    👉 Nara kota yang bagaimana?<br>
+                    ……<ruby>古<rt>ふる</rt></ruby>い <ruby>町<rt>まち</rt></ruby> です。<br>
+                    👉 ……Kota yang lama.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Script untuk efek interaktif flashcard & Audio -->
+    <script>
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function flipCard(card, jpWord) {
+            speakText(jpWord);
+
+            let indonesianText = card.querySelector('.id-text');
+            let romajiText = card.querySelector('.romaji');
+            let jpText = card.querySelector('.jp-text');
+            let kanjiText = card.querySelector('.kanji-text');
+            
+            if (indonesianText.style.display === 'none' || indonesianText.style.display === '') {
+                indonesianText.style.display = 'block';
+                romajiText.style.display = 'none'; 
+                jpText.style.display = 'none';
+                if(kanjiText) kanjiText.style.display = 'none';
+                card.style.backgroundColor = '#ffebee'; 
+            } else {
+                indonesianText.style.display = 'none';
+                romajiText.style.display = 'block';
+                jpText.style.display = 'block';
+                if(kanjiText) kanjiText.style.display = 'block';
+                card.style.backgroundColor = '#fff';
+            }
+        }
+    </script>
+</body>
+</html>

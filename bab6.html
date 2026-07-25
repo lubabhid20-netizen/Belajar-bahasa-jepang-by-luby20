@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minna no Nihongo Bab 6 + Audio & Furigana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 5px;
+        }
+        
+        /* Style untuk Flashcard Kosakata */
+        .flashcard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .flashcard {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 180px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            padding: 5px;
+        }
+        .flashcard:hover {
+            border-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+        }
+        .kanji-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .jp-text {
+            font-size: 14px;
+            color: #444;
+        }
+        .romaji {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .id-text {
+            font-size: 15px;
+            color: #d32f2f;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Style untuk Tata Bahasa & Furigana */
+        .grammar-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .grammar-pattern {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0d47a1;
+        }
+        .grammar-box ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        .grammar-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        /* Styling untuk tag ruby (Furigana) */
+        ruby {
+            ruby-align: center;
+        }
+        rt {
+            font-size: 0.65em;
+            color: #d32f2f;
+            font-weight: normal;
+        }
+
+        /* Style untuk Header Kategori Kosakata */
+        .vocab-category {
+            background-color: #fce4e4;
+            color: #d32f2f;
+            padding: 8px 15px;
+            border-left: 5px solid #d32f2f;
+            border-radius: 4px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #b71c1c; padding: 10px;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: bold; margin-left: 15px;">⬅ Kembali ke Menu</a>
+    </div>
+    
+    <div class="container">
+        <h2>Bab 6 (第 6 課)</h2>
+        <p>Mari belajar kata kerja transitif, makanan, minuman, dan kegiatan sehari-hari! Klik pada kartu untuk mendengar suara dan melihat artinya.</p>
+
+        <!-- Bagian Kosakata (Kotoba) -->
+        <h3>Kosakata (ことば)</h3>
+        <p>🔊 Klik kartu untuk memutar audio & melihat arti bahasa Indonesia.</p>
+
+        <!-- KELOMPOK 1: KATA KERJA (DOUSHI) -->
+        <div class="vocab-category">🏃 Kata Kerja (Doushi)</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'たべます')"><div class="kanji-text">食べます</div><div class="jp-text">たべます</div><div class="romaji">(tabemasu)</div><div class="id-text">Makan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'のみます')"><div class="kanji-text">飲みます</div><div class="jp-text">のみます</div><div class="romaji">(nomimasu)</div><div class="id-text">Minum</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'すいいます')"><div class="kanji-text">吸います</div><div class="jp-text">すいいます</div><div class="romaji">(suimasu)</div><div class="id-text">Mengisap [rokok]</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'みます')"><div class="kanji-text">見ます</div><div class="jp-text">みます</div><div class="romaji">(mimasu)</div><div class="id-text">Melihat, menonton</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ききます')"><div class="kanji-text">聞きます</div><div class="jp-text">ききます</div><div class="romaji">(kikimasu)</div><div class="id-text">Mendengar</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'よみます')"><div class="kanji-text">読みます</div><div class="jp-text">よみます</div><div class="romaji">(yomimasu)</div><div class="id-text">Membaca</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かきます')"><div class="kanji-text">書きます</div><div class="jp-text">かきます</div><div class="romaji">(kakimasu)</div><div class="id-text">Menulis / Menggambar</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かいります')"><div class="kanji-text">買います</div><div class="jp-text">かいります</div><div class="romaji">(kaimasu)</div><div class="id-text">Membeli</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'とります')"><div class="kanji-text">撮ります</div><div class="jp-text">とります</div><div class="romaji">(torimasu)</div><div class="id-text">Mengambil [foto]</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'します')"><div class="kanji-text">します</div><div class="jp-text">します</div><div class="romaji">(shimasu)</div><div class="id-text">Melakukan / Mengerjakan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あいいます')"><div class="kanji-text">会います</div><div class="jp-text">あいいます</div><div class="romaji">(aimasu)</div><div class="id-text">Bertemu [dengan teman]</div></div>
+        </div>
+
+        <!-- KELOMPOK 2: MAKANAN & MINUMAN -->
+        <div class="vocab-category">🍱 Makanan & Minuman</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'ごはん')"><div class="kanji-text">ご飯</div><div class="jp-text">ごはん</div><div class="romaji">(gohan)</div><div class="id-text">Nasi / Makanan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あさごはん')"><div class="kanji-text">朝ごはん</div><div class="jp-text">あさごはん</div><div class="romaji">(asagohan)</div><div class="id-text">Sarapan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ひるごはん')"><div class="kanji-text">昼ごはん</div><div class="jp-text">ひるごはん</div><div class="romaji">(hirugohan)</div><div class="id-text">Makan siang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ばんごはん')"><div class="kanji-text">晩ごはん</div><div class="jp-text">ばんごはん</div><div class="romaji">(bangohan)</div><div class="id-text">Makan malam</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'パン')"><div class="kanji-text">パン</div><div class="jp-text">パン</div><div class="romaji">(pan)</div><div class="id-text">Roti</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'たまご')"><div class="kanji-text">卵</div><div class="jp-text">たまご</div><div class="romaji">(tamago)</div><div class="id-text">Telur</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'にく')"><div class="kanji-text">肉</div><div class="jp-text">にく</div><div class="romaji">(niku)</div><div class="id-text">Daging</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'さかな')"><div class="kanji-text">魚</div><div class="jp-text">さかな</div><div class="romaji">(sakana)</div><div class="id-text">Ikan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'やさい')"><div class="kanji-text">野菜</div><div class="jp-text">やさい</div><div class="romaji">(yasai)</div><div class="id-text">Sayur</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'くだもの')"><div class="kanji-text">果物</div><div class="jp-text">くだもの</div><div class="romaji">(kudamono)</div><div class="id-text">Buah-buahan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'みず')"><div class="kanji-text">水</div><div class="jp-text">みず</div><div class="romaji">(mizu)</div><div class="id-text">Air</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おちゃ')"><div class="kanji-text">お茶</div><div class="jp-text">おちゃ</div><div class="romaji">(ocha)</div><div class="id-text">Teh hijau</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'こうちゃ')"><div class="kanji-text">紅茶</div><div class="jp-text">こうちゃ</div><div class="romaji">(koucha)</div><div class="id-text">Teh hitam / Teh manis</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ぎゅうにゅう')"><div class="kanji-text">牛乳</div><div class="jp-text">ぎゅうにゅう</div><div class="romaji">(gyuunyuu)</div><div class="id-text">Susu sapi</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ジュース')"><div class="kanji-text">ジュース</div><div class="jp-text">ジュース</div><div class="romaji">(juusu)</div><div class="id-text">Jus</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ビール')"><div class="kanji-text">ビール</div><div class="jp-text">ビール</div><div class="romaji">(biiru)</div><div class="id-text">Bir</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'お酒')"><div class="kanji-text">お酒</div><div class="jp-text">おさけ</div><div class="romaji">(osake)</div><div class="id-text">Minuman beralkohol / Sake</div></div>
+        </div>
+
+        <!-- KELOMPOK 3: BENDA & AKTIVITAS -->
+        <div class="vocab-category">📚 Benda & Aktivitas Lain</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'たばこ')"><div class="kanji-text">たばこ</div><div class="jp-text">たばこ</div><div class="romaji">(tabako)</div><div class="id-text">Rokok</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'てがみ')"><div class="kanji-text">手紙</div><div class="jp-text">てがみ</div><div class="romaji">(tegami)</div><div class="id-text">Surat</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'レポート')"><div class="kanji-text">レポート</div><div class="jp-text">レポート</div><div class="romaji">(repooto)</div><div class="id-text">Laporan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しゃしん')"><div class="kanji-text">写真</div><div class="jp-text">しゃしん</div><div class="romaji">(shashin)</div><div class="id-text">Foto</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ビデオ')"><div class="kanji-text">ビデオ</div><div class="jp-text">ビデオ</div><div class="romaji">(bideo)</div><div class="id-text">Video / Kaset VHS</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'みせ')"><div class="kanji-text">店</div><div class="jp-text">みせ</div><div class="romaji">(mise)</div><div class="id-text">Toko</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'にわ')"><div class="kanji-text">庭</div><div class="jp-text">にわ</div><div class="romaji">(niwa)</div><div class="id-text">Halaman / Kebun</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しゅくだい')"><div class="kanji-text">宿題</div><div class="jp-text">しゅくだい</div><div class="romaji">(shukudai)</div><div class="id-text">Pekerjaan rumah (PR)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'テニス')"><div class="kanji-text">テニス</div><div class="jp-text">テニス</div><div class="romaji">(tenisu)</div><div class="id-text">Tenis</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'サッカー')"><div class="kanji-text">サッカー</div><div class="jp-text">サッカー</div><div class="romaji">(sakkaa)</div><div class="id-text">Sepak bola</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おはなみ')"><div class="kanji-text">お花見</div><div class="jp-text">おはなみ</div><div class="romaji">(ohanami)</div><div class="id-text">Menikmati bunga sakura</div></div>
+        </div>
+
+        <!-- KELOMPOK 4: KATA KETERANGAN & UNGKAPAN -->
+        <div class="vocab-category">🗣️ Kata Keterangan & Ungkapan</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'なに')"><div class="kanji-text">何</div><div class="jp-text">なに</div><div class="romaji">(nani)</div><div class="id-text">Apa</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いっしょに')"><div class="kanji-text">一緒に</div><div class="jp-text">いっしょに</div><div class="romaji">(issho ni)</div><div class="id-text">Bersama-sama</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ちょっと')"><div class="kanji-text">ちょっと</div><div class="jp-text">ちょっと</div><div class="romaji">(chotto)</div><div class="id-text">Sebentar / Sedikit</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いつも')"><div class="kanji-text">いつも</div><div class="jp-text">いつも</div><div class="romaji">(itsumo)</div><div class="id-text">Selalu</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ときどき')"><div class="kanji-text">時々</div><div class="jp-text">ときどき</div><div class="romaji">(tokidoki)</div><div class="id-text">Kadang-kadang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'それから')"><div class="kanji-text">それから</div><div class="jp-text">それから</div><div class="romaji">(sorekara)</div><div class="id-text">Setelah itu / Kemudian</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ええ')"><div class="kanji-text">ええ</div><div class="jp-text">ええ</div><div class="romaji">(ee)</div><div class="id-text">Ya</div></div>
+        </div>
+
+        <br><br>
+
+        <!-- Bagian Tata Bahasa (Bunpou) Bab 6 dengan Furigana -->
+        <h2>Tata Bahasa (ぶんぽう)</h2>
+        
+        <div class="grammar-box">
+            <div class="grammar-pattern">1. Kata Benda を Kata Kerja (Kata Kerja Transitif)</div>
+            <p>Partikel <b>を (wo/o)</b> diletakkan di belakang objek langsung yang dikenai pekerjaan dari Kata Kerja Transitif.</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    ジュース <b>を</b> <ruby>飲<rt>の</rt></ruby>みます。<br>
+                    👉 Minum jus.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">2. Kata Benda を します</div>
+            <p>Kata <b>します (shimasu)</b> digunakan bersama Kata Benda untuk menyatakan melakukan suatu aktivitas, olahraga, permainan, pertemuan, atau pekerjaan.</p>
+            <ul>
+                <li>
+                    Contoh 1 (Olahraga):<br>
+                    サッカー <b>を</b> します。<br>
+                    👉 Bermain sepak bola.
+                </li>
+                <br>
+                <li>
+                    Contoh 2 (Pertemuan/Acara):<br>
+                    <ruby>会議<rt>かいぎ</rt></ruby> <b>を</b> します。<br>
+                    👉 Mengadakan rapat.
+                </li>
+                <br>
+                <li>
+                    Contoh 3 (Pekerjaan/Tugas):<br>
+                    <ruby>宿題<rt>しゅくだい</rt></ruby> <b>を</b> します。<br>
+                    👉 Mengerjakan PR.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">3. 何 (なに) を しますか</div>
+            <p>Pola kalimat tanya untuk menanyakan suatu aktivitas atau hal yang sedang/akan dilakukan.</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan & Jawaban:<br>
+                    <ruby>月曜日<rt>げつようび</rt></ruby> <ruby>何<rt>なに</rt></ruby> <b>を</b> しますか。<br>
+                    👉 Hari Senin melakukan apa?<br>
+                    ……<ruby>京都<rt>きょうと</rt></ruby> へ <ruby>行<rt>い</rt></ruby>きます。<br>
+                    👉 ……Pergi ke Kyoto.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">4. Kata Benda (Tempat) で Kata Kerja</div>
+            <p>Partikel <b>で (de)</b> menunjukkan tempat berlangsungnya suatu aksi atau kegiatan (bukan kata kerja perpindahan).</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    <ruby>駅<rt>えき</rt></ruby> <b>で</b> <ruby>新聞<rt>しんぶん</rt></ruby> を <ruby>買<rt>か</rt></ruby>います。<br>
+                    👉 Membeli surat kabar di stasiun.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">5. Kata Kerja ませんか</div>
+            <p>Bentuk ajakan sopan untuk mengajak lawan bicara melakukan sesuatu bersama-sama.</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    いっしょに <ruby>京都<rt>きょうと</rt></ruby> へ <ruby>行<rt>い</rt></ruby>き<b>ませんか</b>。<br>
+                    👉 Bagaimana kalau kita pergi ke Kyoto bersama-sama?<br>
+                    ……ええ、いいですね。<br>
+                    👉 ……Ya, bagus ya.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">6. Kata Kerja ましょう</div>
+            <p>Ekspresi untuk mengusulkan atau menyambut ajakan secara aktif ("Mari kita...").</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    ちょっと <ruby>休<rt>やす</rt></ruby>み<b>ましょう</b>。<br>
+                    👉 Mari istirahat sebentar.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">7. ~ か (Partikel Penjelas / Konfirmasi)</div>
+            <p>Partikel <b>か</b> digunakan untuk menanyakan atau mengonfirmasi informasi baru yang belum diketahui.</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    <ruby>日曜日<rt>にちようび</rt></ruby> <ruby>京都<rt>きょうと</rt></ruby> へ <ruby>行<rt>い</rt></ruby>きました。<br>
+                    👉 Hari Minggu yang lalu pergi ke Kyoto.<br>
+                    ……<ruby>京都<rt>きょうと</rt></ruby><b>ですか</b>。いいですね。<br>
+                    👉 ……Kyoto? Bagus ya.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Script untuk efek interaktif flashcard & Audio -->
+    <script>
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function flipCard(card, jpWord) {
+            speakText(jpWord);
+
+            let indonesianText = card.querySelector('.id-text');
+            let romajiText = card.querySelector('.romaji');
+            let jpText = card.querySelector('.jp-text');
+            let kanjiText = card.querySelector('.kanji-text');
+            
+            if (indonesianText.style.display === 'none' || indonesianText.style.display === '') {
+                indonesianText.style.display = 'block';
+                romajiText.style.display = 'none'; 
+                jpText.style.display = 'none';
+                if(kanjiText) kanjiText.style.display = 'none';
+                card.style.backgroundColor = '#ffebee'; 
+            } else {
+        
