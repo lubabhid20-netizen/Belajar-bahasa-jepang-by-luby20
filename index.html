@@ -18,19 +18,65 @@
         header {
             background-color: #d32f2f;
             color: white;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
             border-bottom: 5px solid #b71c1c;
         }
         .container {
             max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
+            margin: 20px auto;
+            padding: 20px 20px 100px 20px;
             text-align: center;
         }
         h2 {
             color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* Style untuk Kolom Pencarian Bergulir (Marquee Effect) */
+        .search-container {
+            position: relative;
+            width: 100%;
             margin-bottom: 20px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .search-container:focus-within {
+            border-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.15);
+        }
+        .search-box {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background: transparent;
+            position: relative;
+            z-index: 2;
+        }
+        /* Efek teks berjalan menyamping di placeholder saat kosong */
+        .search-box:placeholder-shown {
+            color: transparent;
+        }
+        .search-placeholder-scroll {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            color: #888;
+            font-size: 16px;
+            pointer-events: none;
+            z-index: 1;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, -50%); }
+            100% { transform: translate(-50%, -50%); }
         }
         
         /* Style untuk Tombol Menu */
@@ -78,17 +124,12 @@
             color: white;
         }
         
-        /* Style untuk menu yang belum dibuat (Terkunci) */
-        .btn-locked {
-            border-color: #ccc;
-            color: #aaa;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-        .btn-locked:hover {
-            background-color: white;
-            color: #aaa;
-            transform: none;
+        /* Pesan jika pencarian tidak ditemukan */
+        #no-result {
+            display: none;
+            color: #777;
+            font-style: italic;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -96,18 +137,24 @@
 
     <header>
         <h1>🇯🇵 Belajar Bahasa Jepang</h1>
-        <p>Minna no Nihongo bab 1-50</p>
+        <p>Langkah Awal & Minna no Nihongo Bab 1 - 50</p>
     </header>
 
     <div class="container">
         <h2>Pilih Materi Belajar</h2>
+
+        <!-- Input Kotak Pencarian dengan Teks Bergulir -->
+        <div class="search-container">
+            <div id="placeholderScroll" class="search-placeholder-scroll">🔍 Cari materi, hiragana, atau bab (mis: Bab 26, Potensial, Kaukatif)...</div>
+            <input type="text" id="searchInput" class="search-box" onkeyup="searchMenu(); checkPlaceholder();" onfocus="scrollToInput(this)">
+        </div>
         
-        <div class="menu-container">
+        <div class="menu-container" id="menuList">
             <!-- Bagian Hiragana -->
             <a href="hiragana.html" class="btn-menu btn-dasar">あ Belajar Hiragana</a>
             <a href="kuishiragana.html" class="btn-menu btn-kuis">🎮 Kuis Hiragana</a>
             
-            <br>
+            <br style="line-height: 5px;">
 
             <!-- Bagian Katakana -->
             <a href="katakana.html" class="btn-menu btn-dasar">ア Belajar Katakana</a>
@@ -115,7 +162,7 @@
             
             <hr style="width: 100%; border: 1px solid #ddd; margin: 15px 0;">
 
-            <!-- Bagian Bab Buku (Bab 1 sampai Bab 25) -->
+            <!-- Bagian Bab Buku (Bab 1 sampai Bab 50) -->
             <a href="bab1.html" class="btn-menu">📖 Bab 1: Perkenalan & Profesi</a>
             <a href="bab2.html" class="btn-menu">📖 Bab 2: Kata Penunjuk & Benda</a>
             <a href="bab3.html" class="btn-menu">📖 Bab 3: Tempat & Belanja</a>
@@ -141,8 +188,80 @@
             <a href="bab23.html" class="btn-menu">📖 Bab 23: Pengandaian Waktu (Toki)</a>
             <a href="bab24.html" class="btn-menu">📖 Bab 24: Memberi & Menerima Bantuan (Kureru)</a>
             <a href="bab25.html" class="btn-menu">📖 Bab 25: Pengandaian Kondisional (Tara) & Meskipun</a>
+            <a href="bab26.html" class="btn-menu">📖 Bab 26: Penjelasan Alasan & Ndesu</a>
+            <a href="bab27.html" class="btn-menu">📖 Bab 27: Kata Kerja Potensial (Bisa Melakukan)</a>
+            <a href="bab28.html" class="btn-menu">📖 Bab 28: Sambil (~nagara) & Kebiasaan</a>
+            <a href="bab29.html" class="btn-menu">📖 Bab 29: Keadaan Selesai/Tertinggal & Tujuan Pergerakan</a>
+            <a href="bab30.html" class="btn-menu">📖 Bab 30: Keadaan Persiapan (~te arimasu / okimasu)</a>
+            <a href="bab31.html" class="btn-menu">📖 Bab 31: Bentuk Maksud & Rencana (Tsumori / Yotei)</a>
+            <a href="bab32.html" class="btn-menu">📖 Bab 32: Saran, Kemungkinan (~deshou / kamoshiremasen)</a>
+            <a href="bab33.html" class="btn-menu">📖 Bab 33: Perintah, Larangan & Kutipan Ucapan</a>
+            <a href="bab34.html" class="btn-menu">📖 Bab 34: Sesuai Dengan (~toori ni) & Sesudah/Sebelum</a>
+            <a href="bab35.html" class="btn-menu">📖 Bab 35: Bentuk Syarat (~nara / ba)</a>
+            <a href="bab36.html" class="btn-menu">📖 Bab 36: Usaha Agar Menjadi (~you ni)</a>
+            <a href="bab37.html" class="btn-menu">📖 Bab 37: Kata Kerja Pasif (Ukemikei)</a>
+            <a href="bab38.html" class="btn-menu">📖 Bab 38: Nominalisasi (~no) & Hubungan Kata Sifat</a>
+            <a href="bab39.html" class="btn-menu">📖 Bab 39: Alasan & Sebab (~node)</a>
+            <a href="bab40.html" class="btn-menu">📖 Bab 40: Tanya Interogatif (~ka, ~ka douka) & Ukuran</a>
+            <a href="bab41.html" class="btn-menu">📖 Bab 41: Pemberian & Penerimaan (Keigo Dasar)</a>
+            <a href="bab42.html" class="btn-menu">📖 Bab 42: Tujuan Penggunaan (~tameni / niwa)</a>
+            <a href="bab43.html" class="btn-menu">📖 Bab 43: Kesan / Tampaknya (~soudesu)</a>
+            <a href="bab44.html" class="btn-menu">📖 Bab 44: Terlalu (~sugimasu) & Mudah/Susah Dilakukan</a>
+            <a href="bab45.html" class="btn-menu">📖 Bab 45: Pengandaian Keadaan (~baai wa, noni)</a>
+            <a href="bab46.html" class="btn-menu">📖 Bab 46: Baru Saja (~tokoro) & Perkiraan (~hazudesu)</a>
+            <a href="bab47.html" class="btn-menu">📖 Bab 47: Katanya (~soudesu) & Kesan Berdasarkan Indra</a>
+            <a href="bab48.html" class="btn-menu">📖 Bab 48: Kata Kerja Kausatif (Ekspresi Menyuruh)</a>
+            <a href="bab49.html" class="btn-menu">📖 Bab 49: Keigo (Bahasa Halus & Hormat / Sonkeigo)</a>
+            <a href="bab50.html" class="btn-menu">📖 Bab 50: Kenjougo (Bahasa Merendahkan Diri)</a>
         </div>
+
+        <p id="no-result">⚠️ Maaf, materi yang kamu cari tidak ditemukan.</p>
     </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        function searchMenu() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let container = document.getElementById('menuList');
+            let items = container.getElementsByClassName('btn-menu');
+            let noResult = document.getElementById('no-result');
+            let foundCount = 0;
+
+            for (let i = 0; i < items.length; i++) {
+                let textValue = items[i].textContent || items[i].innerText;
+                if (textValue.toLowerCase().indexOf(input) > -1) {
+                    items[i].style.display = "";
+                    foundCount++;
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+
+            if (foundCount === 0) {
+                noResult.style.display = "block";
+            } else {
+                noResult.style.display = "none";
+            }
+        }
+
+        // Menyembunyikan teks placeholder bergulir saat kotak pencarian diketik atau diisi
+        function checkPlaceholder() {
+            let input = document.getElementById('searchInput').value;
+            let placeholder = document.getElementById('placeholderScroll');
+            if (input.length > 0) {
+                placeholder.style.display = "none";
+            } else {
+                placeholder.style.display = "block";
+            }
+        }
+
+        // Auto-scroll ke atas saat kotak pencarian diklik agar tidak tertutup keyboard HP
+        function scrollToInput(element) {
+            setTimeout(function() {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+    </script>
 
 </body>
 </html>
