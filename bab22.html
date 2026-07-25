@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minna no Nihongo Bab 22 + Audio & Furigana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 5px;
+        }
+        .btn-kembali-menu {
+            display: inline-block;
+            background-color: #b71c1c;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-kembali-menu:hover {
+            background-color: #d32f2f;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            gap: 8px;
+        }
+        .nav-btn {
+            flex: 1;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #d32f2f;
+            text-decoration: none;
+            padding: 10px 12px;
+            border: 2px solid #d32f2f;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            background-color: #d32f2f;
+            color: white;
+        }
+        .chapter-select {
+            flex: 1.2;
+            padding: 9px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #d32f2f;
+            border: 2px solid #d32f2f;
+            border-radius: 6px;
+            background-color: white;
+            text-align: center;
+            outline: none;
+            cursor: pointer;
+        }
+        .chapter-select:hover {
+            background-color: #fce4e4;
+        }
+        .flashcard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .flashcard {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 180px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            padding: 5px;
+        }
+        .flashcard:hover {
+            border-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+        }
+        .kanji-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .jp-text {
+            font-size: 14px;
+            color: #444;
+        }
+        .romaji {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .id-text {
+            font-size: 14px;
+            color: #d32f2f;
+            font-weight: bold;
+            display: none;
+        }
+        .grammar-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .grammar-pattern {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0d47a1;
+        }
+        .grammar-box ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        .grammar-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        ruby {
+            ruby-align: center;
+        }
+        rt {
+            font-size: 0.65em;
+            color: #d32f2f;
+            font-weight: normal;
+        }
+        table.grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+        }
+        table.grammar-table th, table.grammar-table td {
+            border: 1px solid #90caf9;
+            padding: 10px;
+            font-size: 13px;
+            vertical-align: middle;
+        }
+        table.grammar-table th {
+            background-color: #bbdefb;
+            color: #0d47a1;
+            text-align: center;
+        }
+        .vocab-category {
+            background-color: #fce4e4;
+            color: #d32f2f;
+            padding: 8px 15px;
+            border-left: 5px solid #d32f2f;
+            border-radius: 4px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇯🇵 Minna no Nihongo</h1>
+    </header>
+    <div style="max-width: 800px; margin: 15px auto 0 auto; padding: 0 20px;">
+        <a href="index.html" class="btn-kembali-menu">⬅ Kembali ke Menu Utama</a>
+    </div>
+
+    <div class="container">
+        <!-- Navigasi Cepat di Bagian ATAS -->
+        <div class="nav-bar">
+            <a href="bab21.html" class="nav-btn">◀ Bab 21</a>
+            <select class="chapter-select" onchange="location = this.value;">
+                <option value="" disabled>Pilih Bab (1-50)</option>
+                <option value="bab1.html">Bab 1</option>
+                <option value="bab2.html">Bab 2</option>
+                <option value="bab3.html">Bab 3</option>
+                <option value="bab4.html">Bab 4</option>
+                <option value="bab5.html">Bab 5</option>
+                <option value="bab6.html">Bab 6</option>
+                <option value="bab7.html">Bab 7</option>
+                <option value="bab8.html">Bab 8</option>
+                <option value="bab9.html">Bab 9</option>
+                <option value="bab10.html">Bab 10</option>
+                <option value="bab11.html">Bab 11</option>
+                <option value="bab12.html">Bab 12</option>
+                <option value="bab13.html">Bab 13</option>
+                <option value="bab14.html">Bab 14</option>
+                <option value="bab15.html">Bab 15</option>
+                <option value="bab16.html">Bab 16</option>
+                <option value="bab17.html">Bab 17</option>
+                <option value="bab18.html">Bab 18</option>
+                <option value="bab19.html">Bab 19</option>
+                <option value="bab20.html">Bab 20</option>
+                <option value="bab21.html">Bab 21</option>
+                <option value="bab22.html" selected>Bab 22</option>
+                <option value="bab23.html">Bab 23</option>
+                <option value="bab24.html">Bab 24</option>
+                <option value="bab25.html">Bab 25</option>
+                <option value="bab26.html">Bab 26</option>
+                <option value="bab27.html">Bab 27</option>
+                <option value="bab28.html">Bab 28</option>
+                <option value="bab29.html">Bab 29</option>
+                <option value="bab30.html">Bab 30</option>
+                <option value="bab31.html">Bab 31</option>
+                <option value="bab32.html">Bab 32</option>
+                <option value="bab33.html">Bab 33</option>
+                <option value="bab34.html">Bab 34</option>
+                <option value="bab35.html">Bab 35</option>
+                <option value="bab36.html">Bab 36</option>
+                <option value="bab37.html">Bab 37</option>
+                <option value="bab38.html">Bab 38</option>
+                <option value="bab39.html">Bab 39</option>
+                <option value="bab40.html">Bab 40</option>
+                <option value="bab41.html">Bab 41</option>
+                <option value="bab42.html">Bab 42</option>
+                <option value="bab43.html">Bab 43</option>
+                <option value="bab44.html">Bab 44</option>
+                <option value="bab45.html">Bab 45</option>
+                <option value="bab46.html">Bab 46</option>
+                <option value="bab47.html">Bab 47</option>
+                <option value="bab48.html">Bab 48</option>
+                <option value="bab49.html">Bab 49</option>
+                <option value="bab50.html">Bab 50</option>
+            </select>
+            <a href="bab23.html" class="nav-btn">Bab 23 ▶</a>
+        </div>
+
+        <h2>Bab 22 (第 22 課)</h2>
+        <p>Mari belajar kalimat penjelas benda (Anak Kalimat / Modifier), menyatakan waktu/janji/urusan untuk melakukan sesuatu (*waktu untuk...*), serta menawarkan diri secara bersama-sama (*...mashou ka*)!</p>
+
+        <!-- Bagian Kosakata (Kotoba) -->
+        <h3>Kosakata (ことば)</h3>
+        <p>🔊 Klik kartu untuk memutar audio & melihat arti bahasa Indonesia.</p>
+
+        <div class="vocab-category">🏃 Kata Kerja (動詞)</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'きます')"><div class="kanji-text">着ます</div><div class="jp-text">きます</div><div class="romaji">(kimasu)</div><div class="id-text">memakai (kemeja/baju)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'はきます')"><div class="kanji-text">はきます</div><div class="jp-text">はきます</div><div class="romaji">(hakimasu)</div><div class="id-text">memakai (sepatu, celana)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かぶります')"><div class="kanji-text">かぶります</div><div class="jp-text">かぶります</div><div class="romaji">(kaburimasu)</div><div class="id-text">memakai (topi)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かけます')"><div class="kanji-text">かけます [めがねを～]</div><div class="jp-text">かけます</div><div class="romaji">(kakemasu)</div><div class="id-text">memakai [kaca mata]</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'します')"><div class="kanji-text">します [ネクタイを～]</div><div class="jp-text">します</div><div class="romaji">(shimasu)</div><div class="id-text">memakai [dasi]</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'うまれます')"><div class="kanji-text">生まれます</div><div class="jp-text">うまれます</div><div class="romaji">(umaremasu)</div><div class="id-text">lahir</div></div>
+        </div>
+
+        <div class="vocab-category">✨ Kata Benda & Sifat</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'わたしたち')"><div class="kanji-text">私たち</div><div class="jp-text">わたしたち</div><div class="romaji">(watashitachi)</div><div class="id-text">kami, kita</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'コート')"><div class="kanji-text">コート</div><div class="jp-text">コート</div><div class="romaji">(kooto)</div><div class="id-text">mantel</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'セーター')"><div class="kanji-text">セーター</div><div class="jp-text">セーター</div><div class="romaji">(seetaa)</div><div class="id-text">sweater, baju hangat</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'スーツ')"><div class="kanji-text">スーツ</div><div class="jp-text">スーツ</div><div class="romaji">(suutsu)</div><div class="id-text">pakaian setelan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ぼうし')"><div class="kanji-text">帽子</div><div class="jp-text">ぼうし</div><div class="romaji">(boushi)</div><div class="id-text">topi</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'めがね')"><div class="kanji-text">眼鏡</div><div class="jp-text">めがね</div><div class="romaji">(megane)</div><div class="id-text">kaca mata</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ケーキ')"><div class="kanji-text">ケーキ</div><div class="jp-text">ケーキ</div><div class="romaji">(keeki)</div><div class="id-text">kue</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おべんとう')"><div class="kanji-text">お弁当</div><div class="jp-text">おべんとう</div><div class="romaji">(obentou)</div><div class="id-text">bekal</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ロボット')"><div class="kanji-text">ロボット</div><div class="jp-text">ロボット</div><div class="romaji">(robotto)</div><div class="id-text">robot</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ユーモア')"><div class="kanji-text">ユーモア</div><div class="jp-text">ユーモア</div><div class="romaji">(yuumoa)</div><div class="id-text">humor</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'つごう')"><div class="kanji-text">都合</div><div class="jp-text">つごう</div><div class="romaji">(tsugou)</div><div class="id-text">kondisi / waktu luang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'よく')"><div class="kanji-text">よく</div><div class="jp-text">よく</div><div class="romaji">(yoku)</div><div class="id-text">sering kali</div></div>
+        </div>
+
+        <div class="vocab-category">🗣️ Kosakata Kaiwa (Percakapan) & Lingkungan Rumah</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'おめでとうございます')"><div class="kanji-text">おめでとう[ございます]</div><div class="jp-text">おめでとうございます</div><div class="romaji">(omedetou gozaimasu)</div><div class="id-text">Selamat (ulang tahun, pernikahan, dll)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'お探しですか')"><div class="kanji-text">お探しですか</div><div class="jp-text">おさがしですか</div><div class="romaji">(osagashi desu ka)</div><div class="id-text">Mencari apa?</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'では')"><div class="kanji-text">では</div><div class="jp-text">では</div><div class="romaji">(dewa)</div><div class="id-text">kalau begitu</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'こちら')"><div class="kanji-text">こちら</div><div class="jp-text">こちら</div><div class="romaji">(kochira)</div><div class="id-text">ini (sopan dari これ)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'やちん')"><div class="kanji-text">家賃</div><div class="jp-text">やちん</div><div class="romaji">(yachin)</div><div class="id-text">biaya sewa rumah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ダイニングキッチン')"><div class="kanji-text">ダイニングキッチン</div><div class="jp-text">ダイニングキッチン</div><div class="romaji">(dainingu kicchin)</div><div class="id-text">ruang makan dengan dapur</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'わしつ')"><div class="kanji-text">和室</div><div class="jp-text">わしつ</div><div class="romaji">(washitsu)</div><div class="id-text">kamar ala Jepang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おしいれ')"><div class="kanji-text">押入れ</div><div class="jp-text">おしいれ</div><div class="romaji">(oshiire)</div><div class="id-text">lemari dinding ala Jepang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ふとん')"><div class="kanji-text">布団</div><div class="jp-text">ふとん</div><div class="romaji">(futon)</div><div class="id-text">selimut & kasur tradisional Jepang</div></div>
+        </div>
+
+        <br><br>
+
+        <!-- Bagian Tata Bahasa (Bunpou) Bab 22 -->
+        <h2>Tata Bahasa (ぶんぽう)</h2>
+        
+        <div class="grammar-box">
+            <div class="grammar-pattern">1. Anak Kalimat (Kalimat Penjelas Benda / Modifier) - Penjelasan Rinci</div>
+            <p>Dalam bahasa Jepang, frasa atau kalimat yang berfungsi untuk menerangkan/memperjelas suatu <b>Kata Benda (Noun)</b> diletakkan di **sebelah depan** Kata Benda tersebut.</p>
+            
+            <h4 style="color: #0d47a1; margin-top: 10px; margin-bottom: 5px;">⚠️ Aturan Penting di Dalam Anak Kalimat:</h4>
+            <ul>
+                <li><b>Menggunakan Bentuk Biasa (Futsuukei):</b> Semua kata kerja, kata sifat-i, kata sifat-na, dan kata benda di dalam anak kalimat wajib menggunakan bentuk biasa (bukan bentuk sopan <i>desu/masu</i>).</li>
+                <li><b>Perubahan Sifat-na & Kata Benda:</b> Kata Sifat-na wajib diubah menggunakan akhiran <b>[な]</b> (contoh: <i>kirei na</i>), sedangkan Kata Benda disambung menggunakan partikel <b>の</b> sebelum kata benda utama.</li>
+                <li><b>Penanda Subjek (Partikel が):</b> Jika di dalam anak kalimat terdapat subjek yang melakukan suatu aksi terhadap benda yang diterangkan, subjek tersebut **tidak menggunakan partikel は**, melainkan wajib menggunakan partikel **が**.</li>
+            </ul>
+
+            <h4 style="color: #0d47a1; margin-top: 15px; margin-bottom: 5px;">📐 Rumus / Pola Dasar:</h4>
+            <ul>
+                <li>[ Kata Kerja Bentuk Biasa / Sifat / Benda ] ＋ <b>Kata Benda Utama</b></li>
+            </ul>
+
+            <h4 style="color: #0d47a1; margin-top: 15px; margin-bottom: 5px;">✨ Contoh Kalimat Panjang & Lengkap:</h4>
+            <ul>
+                <li>これは <ruby>ミラー<rt>みらー</rt></ruby>さんが <b><ruby>住<rt>す</rt></ruby>んでいた</b> うちです.<br>👉 Ini adalah rumah yang pernah dihuni oleh Sdr. Miller.</li>
+                <li><ruby>ミラー<rt>みらー</rt></ruby>さんが <b><ruby>作<rt>つく</rt></ruby>った</b> ケーキは <b><ruby>大変<rt>たいへん</rt></ruby>おいしかったです</b>.<br>👉 Kue yang dibuat oleh Sdr. Miller sangat enak.</li>
+                <li>わたしは <ruby>留学生<rt>りゅうがくせい</rt></ruby>が <b><ruby>多<rt>おお</rt></ruby>い</b> <ruby>大学<rt>だいがく</rt></ruby>で <b><ruby>勉強<rt>べんきょう</rt></ruby>しています</b>.<br>👉 Saya sedang belajar di universitas yang banyak mahasiswanya (mahasiswa asing).</li>
+                <li>きょう、<ruby>図書館<rt>としょかん</rt></ruby>で <b><ruby>買<rt>か</rt></ruby>った</b> <ruby>本<rt>ほん</rt></ruby>を <ruby>友達<rt>ともだち</rt></ruby>に <b><ruby>貸<rt>か</rt></ruby>しました</b>.<br>👉 Saya meminjamkan buku yang dibeli di perpustakaan hari ini kepada teman.</li>
+                <li>あそこにいる、<ruby>背<rt>せ</rt></ruby>が <b><ruby>高<rt>たか</rt></ruby>くて</b>、<ruby>髪<rt>かみ</rt></ruby>が <b><ruby>黒<rt>くろ</rt></ruby>い</b> <ruby>人<rt>ひと</rt></ruby>は わたしの<ruby>兄<rt>あに</rt></ruby>です.<br>👉 Orang yang ada di sana, yang badannya tinggi dan rambutnya hitam, adalah kakak laki-laki saya.</li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">2. Kata Kerja [Bentuk Kamus] ＋ <ruby>時間<rt>じかん</rt></ruby> / <ruby>約束<rt>やくそく</rt></ruby> / <ruby>用事<rt>ようじ</rt></ruby></div>
+            <p>Menunjukkan bahwa ada waktu, janji, atau urusan untuk melakukan suatu aksi (di mana kata kerja berbentuk kamus diletakkan di depan kata benda tersebut).</p>
+            <ul>
+                <li>わたしは <ruby>朝<rt>あさ</rt></ruby>ごはんを <b><ruby>食<rt>た</rt></ruby>べる <ruby>時間<rt>じかん</rt></ruby></b>が ありません.<br>👉 Saya tidak ada waktu untuk makan pagi.</li>
+                <li>わたしは <ruby>友達<rt>ともだち</rt></ruby>と <ruby>映画<rt>えいが</rt></ruby>を <b><ruby>見<rt>み</rt></ruby>る <ruby>約束<rt>やくそく</rt></ruby></b>が あります.<br>👉 Saya ada janji dengan teman untuk menonton film.</li>
+                <li>きょうは <ruby>市役所<rt>しやくしょ</rt></ruby>へ <b><ruby>行<rt>い</rt></ruby>く</b> <b><ruby>用事<rt>ようじ</rt></ruby></b>が あります.<br>👉 Hari ini ada urusan pergi ke kantor wali kota.</li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">3. Kata Kerja [Bentuk ます] ＋ ましょうか (Bagaimana kalau...?)</div>
+            <p>Digunakan sebagai ungkapan pembicara yang menawarkan diri atau mengajak lawan bicara untuk bersama-sama melakukan sesuatu.</p>
+            <ul>
+                <li>この<ruby>部屋<rt>へや</rt></ruby>、きょう <b><ruby>見<rt>み</rt></ruby>る こと が できますか</b>.<br>👉 Apakah kamar ini dapat saya lihat hari ini?</li>
+                <li>……ええ。<b><ruby>今<rt>いま</rt></ruby>から <ruby>行<rt>い</rt></ruby>きましょうか。</b><br>👉 ……Ya. Bagaimana kalau pergi sekarang?</li>
+            </ul>
+        </div>
+
+        <!-- Navigasi Cepat di Bagian BAWAH -->
+        <div class="nav-bar" style="margin-top: 30px;">
+            <a href="bab21.html" class="nav-btn">◀ Bab 21</a>
+            <select class="chapter-select" onchange="location = this.value;">
+                <option value="" disabled>Pilih Bab (1-50)</option>
+                <option value="bab1.html">Bab 1</option>
+                <option value="bab2.html">Bab 2</option>
+                <option value="bab3.html">Bab 3</option>
+                <option value="bab4.html">Bab 4</option>
+                <option value="bab5.html">Bab 5</option>
+                <option value="bab6.html">Bab 6</option>
+                <option value="bab7.html">Bab 7</option>
+                <option value="bab8.html">Bab 8</option>
+                <option value="bab9.html">Bab 9</option>
+                <option value="bab10.html">Bab 10</option>
+                <option value="bab11.html">Bab 11</option>
+                <option value="bab12.html">Bab 12</option>
+                <option value="bab13.html">Bab 13</option>
+                <option value="bab14.html">Bab 14</option>
+                <option value="bab15.html">Bab 15</option>
+                <option value="bab16.html">Bab 16</option>
+                <option value="bab17.html">Bab 17</option>
+                <option value="bab18.html">Bab 18</option>
+                <option value="bab19.html">Bab 19</option>
+                <option value="bab20.html">Bab 20</option>
+                <option value="bab21.html">Bab 21</option>
+                <option value="bab22.html" selected>Bab 22</option>
+                <option value="bab23.html">Bab 23</option>
+                <option value="bab24.html">Bab 24</option>
+                <option value="bab25.html">Bab 25</option>
+                <option value="bab26.html">Bab 26</option>
+                <option value="bab27.html">Bab 27</option>
+                <option value="bab28.html">Bab 28</option>
+                <option value="bab29.html">Bab 29</option>
+                <option value="bab30.html">Bab 30</option>
+                <option value="bab31.html">Bab 31</option>
+                <option value="bab32.html">Bab 32</option>
+                <option value="bab33.html">Bab 33</option>
+                <option value="bab34.html">Bab 34</option>
+                <option value="bab35.html">Bab 35</option>
+                <option value="bab36.html">Bab 36</option>
+                <option value="bab37.html">Bab 37</option>
+                <option value="bab38.html">Bab 38</option>
+                <option value="bab39.html">Bab 39</option>
+                <option value="bab40.html">Bab 40</option>
+                <option value="bab41.html">Bab 41</option>
+                <option value="bab42.html">Bab 42</option>
+                <option value="bab43.html">Bab 43</option>
+                <option value="bab44.html">Bab 44</option>
+                <option value="bab45.html">Bab 45</option>
+                <option value="bab46.html">Bab 46</option>
+                <option value="bab47.html">Bab 47</option>
+                <option value="bab48.html">Bab 48</option>
+                <option value="bab49.html">Bab 49</option>
+                <option value="bab50.html">Bab 50</option>
+            </select>
+            <a href="bab23.html" class="nav-btn">Bab 23 ▶</a>
+        </div>
+
+    </div>
+
+    <!-- Script untuk efek interaktif flashcard & Audio -->
+    <script>
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function flipCard(card, jpWord) {
+            speakText(jpWord);
+
+            let indonesianText = card.querySelector('.id-text');
+            let romajiText = card.querySelector('.romaji');
+            let jpText = card.querySelector('.jp-text');
+            let kanjiText = card.querySelector('.kanji-text');
+            
+            if (indonesianText.style.display === 'none' || indonesianText.style.display === '') {
+                indonesianText.style.display = 'block';
+                romajiText.style.display = 'none'; 
+                jpText.style.display = 'none';
+                if(kanjiText) kanjiText.style.display = 'none';
+                card.style.backgroundColor = '#ffebee'; 
+            } else {
+                indonesianText.style.display = 'none';
+                romajiText.style.display = 'block';
+                jpText.style.display = 'block';
+                if(kanjiText) kanjiText.style.display = 'block';
+                card.style.backgroundColor = '#fff';
+            }
+        }
+    </script>
+</body>
+</html>
