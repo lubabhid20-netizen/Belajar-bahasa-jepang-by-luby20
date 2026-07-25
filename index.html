@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Utama - Belajar Jepang</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid #b71c1c;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        /* Style untuk Tombol Menu */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn-menu {
+            display: block;
+            background-color: white;
+            color: #d32f2f;
+            text-decoration: none;
+            padding: 15px 20px;
+            border: 2px solid #d32f2f;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .btn-menu:hover, .btn-menu:active {
+            background-color: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Style untuk tombol Belajar Huruf (Warna Biru) */
+        .btn-dasar {
+            color: #1976d2;
+            border-color: #1976d2;
+        }
+        .btn-dasar:hover, .btn-dasar:active {
+            background-color: #1976d2;
+            color: white;
+        }
+
+        /* Style untuk tombol Kuis Huruf (Warna Orange) */
+        .btn-kuis {
+            color: #e65100;
+            border-color: #e65100;
+        }
+        .btn-kuis:hover, .btn-kuis:active {
+            background-color: #e65100;
+            color: white;
+        }
+        
+        /* Style untuk menu yang belum dibuat (Terkunci) */
+        .btn-locked {
+            border-color: #ccc;
+            color: #aaa;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .btn-locked:hover {
+            background-color: white;
+            color: #aaa;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🇯🇵 Belajar Bahasa Jepang</h1>
+        <p>Langkah Awal & Minna no Nihongo</p>
+    </header>
+
+    <div class="container">
+        <h2>Pilih Materi Belajar</h2>
+        
+        <div class="menu-container">
+            <!-- Bagian Hiragana -->
+            <a href="hiragana.html" class="btn-menu btn-dasar">あ Belajar Hiragana</a>
+            <a href="kuishiragana.html" class="btn-menu btn-kuis">🎮 Kuis Hiragana</a>
+            
+            <br>
+
+            <!-- Bagian Katakana (Sekarang Sudah Dibuka Kuncinya) -->
+            <a href="katakana.html" class="btn-menu btn-dasar">ア Belajar Katakana</a>
+            <a href="kuiskatakana.html" class="btn-menu btn-kuis">🎮 Kuis Katakana</a>
+            
+            <hr style="width: 100%; border: 1px solid #ddd; margin: 15px 0;">
+
+            <!-- Bagian Bab Buku -->
+            <a href="bab1.html" class="btn-menu">📖 Bab 1: Perkenalan & Profesi</a>
+            <a href="bab2.html" class="btn-menu">📖 Bab 2: Kata Penunjuk & Benda</a>
+            <a href="bab3.html" class="btn-menu">📖 Bab 3: Tempat & Belanja</a>
+            <a href="bab4.html" class="btn-menu">📖 Bab 4: Waktu & Kegiatan Sehari-hari</a>
+            <a href="bab5.html" class="btn-menu">📖Bab 5: Perpindahan, Transportasi & Tanggal</a>
+        </div>
+    </div>
+
+</body>
+</html>

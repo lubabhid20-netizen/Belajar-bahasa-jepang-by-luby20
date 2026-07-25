@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Hiragana Dasar + Audio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f0f8ff; /* Warna biru sangat muda */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1976d2; /* Biru utama */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            display: inline-block;
+            background-color: #1565c0;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #1976d2;
+            border-bottom: 2px solid #1976d2;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Style untuk Tabel Hiragana (Grid 5 Kolom) */
+        .hiragana-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        
+        .kana-card {
+            background-color: #fff;
+            border: 2px solid #bbdefb;
+            border-radius: 8px;
+            padding: 15px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .kana-card:hover {
+            border-color: #1976d2;
+            background-color: #e3f2fd;
+            transform: scale(1.05);
+        }
+        
+        .kana-char {
+            font-size: 28px;
+            font-weight: bold;
+            color: #222;
+        }
+        .kana-romaji {
+            font-size: 14px;
+            color: #1976d2;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Kelas untuk kotak kosong */
+        .empty-slot {
+            background: transparent;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>あ Huruf Hiragana + Audio</h1>
+    </header>
+
+    <div class="container">
+        <!-- Tombol Kembali ke Menu Utama -->
+        <a href="index.html" class="back-btn">⬅ Kembali ke Menu</a>
+
+        <h2>Tabel Hiragana Dasar (Seion)</h2>
+        <p>Sentuh kotak huruf mana saja untuk mendengarkan suaranya!</p>
+
+        <div class="hiragana-grid">
+            <!-- Baris A -->
+            <div class="kana-card" onclick="speakText('あ')"><div class="kana-char">あ</div><div class="kana-romaji">a</div></div>
+            <div class="kana-card" onclick="speakText('い')"><div class="kana-char">い</div><div class="kana-romaji">i</div></div>
+            <div class="kana-card" onclick="speakText('う')"><div class="kana-char">う</div><div class="kana-romaji">u</div></div>
+            <div class="kana-card" onclick="speakText('え')"><div class="kana-char">え</div><div class="kana-romaji">e</div></div>
+            <div class="kana-card" onclick="speakText('お')"><div class="kana-char">お</div><div class="kana-romaji">o</div></div>
+
+            <!-- Baris K -->
+            <div class="kana-card" onclick="speakText('か')"><div class="kana-char">か</div><div class="kana-romaji">ka</div></div>
+            <div class="kana-card" onclick="speakText('き')"><div class="kana-char">き</div><div class="kana-romaji">ki</div></div>
+            <div class="kana-card" onclick="speakText('く')"><div class="kana-char">く</div><div class="kana-romaji">ku</div></div>
+            <div class="kana-card" onclick="speakText('け')"><div class="kana-char">け</div><div class="kana-romaji">ke</div></div>
+            <div class="kana-card" onclick="speakText('こ')"><div class="kana-char">こ</div><div class="kana-romaji">ko</div></div>
+
+            <!-- Baris S -->
+            <div class="kana-card" onclick="speakText('さ')"><div class="kana-char">さ</div><div class="kana-romaji">sa</div></div>
+            <div class="kana-card" onclick="speakText('し')"><div class="kana-char">し</div><div class="kana-romaji">shi</div></div>
+            <div class="kana-card" onclick="speakText('す')"><div class="kana-char">す</div><div class="kana-romaji">su</div></div>
+            <div class="kana-card" onclick="speakText('せ')"><div class="kana-char">せ</div><div class="kana-romaji">se</div></div>
+            <div class="kana-card" onclick="speakText('そ')"><div class="kana-char">そ</div><div class="kana-romaji">so</div></div>
+
+            <!-- Baris T -->
+            <div class="kana-card" onclick="speakText('た')"><div class="kana-char">た</div><div class="kana-romaji">ta</div></div>
+            <div class="kana-card" onclick="speakText('ち')"><div class="kana-char">ち</div><div class="kana-romaji">chi</div></div>
+            <div class="kana-card" onclick="speakText('つ')"><div class="kana-char">つ</div><div class="kana-romaji">tsu</div></div>
+            <div class="kana-card" onclick="speakText('て')"><div class="kana-char">て</div><div class="kana-romaji">te</div></div>
+            <div class="kana-card" onclick="speakText('と')"><div class="kana-char">と</div><div class="kana-romaji">to</div></div>
+
+            <!-- Baris N -->
+            <div class="kana-card" onclick="speakText('な')"><div class="kana-char">な</div><div class="kana-romaji">na</div></div>
+            <div class="kana-card" onclick="speakText('に')"><div class="kana-char">に</div><div class="kana-romaji">ni</div></div>
+            <div class="kana-card" onclick="speakText('ぬ')"><div class="kana-char">ぬ</div><div class="kana-romaji">nu</div></div>
+            <div class="kana-card" onclick="speakText('ね')"><div class="kana-char">ね</div><div class="kana-romaji">ne</div></div>
+            <div class="kana-card" onclick="speakText('の')"><div class="kana-char">の</div><div class="kana-romaji">no</div></div>
+
+            <!-- Baris H -->
+            <div class="kana-card" onclick="speakText('は')"><div class="kana-char">は</div><div class="kana-romaji">ha</div></div>
+            <div class="kana-card" onclick="speakText('ひ')"><div class="kana-char">ひ</div><div class="kana-romaji">hi</div></div>
+            <div class="kana-card" onclick="speakText('ふ')"><div class="kana-char">ふ</div><div class="kana-romaji">fu</div></div>
+            <div class="kana-card" onclick="speakText('へ')"><div class="kana-char">へ</div><div class="kana-romaji">he</div></div>
+            <div class="kana-card" onclick="speakText('ほ')"><div class="kana-char">ほ</div><div class="kana-romaji">ho</div></div>
+
+            <!-- Baris M -->
+            <div class="kana-card" onclick="speakText('ま')"><div class="kana-char">ま</div><div class="kana-romaji">ma</div></div>
+            <div class="kana-card" onclick="speakText('み')"><div class="kana-char">み</div><div class="kana-romaji">mi</div></div>
+            <div class="kana-card" onclick="speakText('む')"><div class="kana-char">む</div><div class="kana-romaji">mu</div></div>
+            <div class="kana-card" onclick="speakText('め')"><div class="kana-char">め</div><div class="kana-romaji">me</div></div>
+            <div class="kana-card" onclick="speakText('も')"><div class="kana-char">も</div><div class="kana-romaji">mo</div></div>
+
+            <!-- Baris Y -->
+            <div class="kana-card" onclick="speakText('や')"><div class="kana-char">や</div><div class="kana-romaji">ya</div></div>
+            <div class="empty-slot"></div>
+            <div class="kana-card" onclick="speakText('ゆ')"><div class="kana-char">ゆ</div><div class="kana-romaji">yu</div></div>
+            <div class="empty-slot"></div>
+            <div class="kana-card" onclick="speakText('よ')"><div class="kana-char">よ</div><div class="kana-romaji">yo</div></div>
+
+            <!-- Baris R -->
+            <div class="kana-card" onclick="speakText('ら')"><div class="kana-char">ら</div><div class="kana-romaji">ra</div></div>
+            <div class="kana-card" onclick="speakText('り')"><div class="kana-char">り</div><div class="kana-romaji">ri</div></div>
+            <div class="kana-card" onclick="speakText('る')"><div class="kana-char">る</div><div class="kana-romaji">ru</div></div>
+            <div class="kana-card" onclick="speakText('れ')"><div class="kana-char">れ</div><div class="kana-romaji">re</div></div>
+            <div class="kana-card" onclick="speakText('ろ')"><div class="kana-char">ろ</div><div class="kana-romaji">ro</div></div>
+
+            <!-- Baris W -->
+            <div class="kana-card" onclick="speakText('わ')"><div class="kana-char">わ</div><div class="kana-romaji">wa</div></div>
+            <div class="empty-slot"></div>
+            <div class="empty-slot"></div>
+            <div class="empty-slot"></div>
+            <div class="kana-card" onclick="speakText('を')"><div class="kana-char">を</div><div class="kana-romaji">wo</div></div>
+
+            <!-- Huruf N -->
+            <div class="kana-card" onclick="speakText('ん')"><div class="kana-char">ん</div><div class="kana-romaji">n</div></div>
+        </div>
+
+    </div>
+
+    <!-- Script Audio (Speech Synthesis API) -->
+    <script>
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Maaf, browser Anda tidak mendukung fitur audio.");
+            }
+        }
+    </script>
+</body>
+</html>

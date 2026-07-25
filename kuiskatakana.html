@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Katakana Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .kana-font { font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', sans-serif; }
+        
+        /* Animasi untuk feedback */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .animate-shake { animation: shake 0.2s ease-in-out 0s 2; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+
+    <header class="bg-orange-600 text-white p-6 shadow-lg text-center">
+        <h1 class="text-2xl font-extrabold tracking-tight">🎮 KUIS KATAKANA</h1>
+        <p class="text-orange-100 text-sm">Uji hafalan huruf Katakana Anda!</p>
+    </header>
+
+    <main class="flex-grow container mx-auto max-w-md p-4">
+        
+        <!-- Tombol Kembali -->
+        <div class="mb-6">
+            <a href="index.html" class="inline-flex items-center text-orange-600 font-semibold hover:text-orange-800 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Kembali ke Menu
+            </a>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl p-8 text-center border border-slate-100">
+            <!-- Skor & Progress -->
+            <div class="flex justify-between items-center mb-8">
+                <div class="bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-sm font-bold">
+                    Skor: <span id="score-display">0</span>
+                </div>
+                <div class="text-slate-400 text-xs font-medium uppercase tracking-widest">
+                    Soal Acak
+                </div>
+            </div>
+
+            <!-- Huruf Jepang (Pertanyaan) -->
+            <div id="question-box" class="bg-slate-100 w-32 h-32 mx-auto rounded-2xl flex items-center justify-center mb-8 border-b-4 border-slate-200 transition-all duration-300">
+                <span id="target-kana" class="kana-font text-6xl font-bold text-slate-800">ア</span>
+            </div>
+
+            <p class="text-slate-500 mb-6 font-medium">Apa romaji dari huruf di atas?</p>
+
+            <div id="options-grid" class="grid grid-cols-2 gap-4">
+                <!-- Tombol akan di-generate oleh JavaScript -->
+                <button onclick="checkAnswer(this)" class="option-btn bg-white border-2 border-slate-200 hover:border-orange-500 hover:bg-orange-50 p-4 rounded-xl font-bold text-xl text-slate-700 transition-all active:scale-95"></button>
+                <button onclick="checkAnswer(this)" class="option-btn bg-white border-2 border-slate-200 hover:border-orange-500 hover:bg-orange-50 p-4 rounded-xl font-bold text-xl text-slate-700 transition-all active:scale-95"></button>
+                <button onclick="checkAnswer(this)" class="option-btn bg-white border-2 border-slate-200 hover:border-orange-500 hover:bg-orange-50 p-4 rounded-xl font-bold text-xl text-slate-700 transition-all active:scale-95"></button>
+                <button onclick="checkAnswer(this)" class="option-btn bg-white border-2 border-slate-200 hover:border-orange-500 hover:bg-orange-50 p-4 rounded-xl font-bold text-xl text-slate-700 transition-all active:scale-95"></button>
+            </div>
+        </div>
+
+        <!-- Pesan Feedback -->
+        <div id="feedback-msg" class="mt-6 text-center font-bold text-lg hidden"></div>
+    </main>
+
+    <script>
+        // Database Katakana Lengkap
+        const katakanaList = [
+            {k:'ア', r:'a'}, {k:'イ', r:'i'}, {k:'ウ', r:'u'}, {k:'エ', r:'e'}, {k:'オ', r:'o'},
+            {k:'カ', r:'ka'}, {k:'キ', r:'ki'}, {k:'ク', r:'ku'}, {k:'ケ', r:'ke'}, {k:'コ', r:'ko'},
+            {k:'サ', r:'sa'}, {k:'シ', r:'shi'}, {k:'ス', r:'su'}, {k:'セ', r:'se'}, {k:'ソ', r:'so'},
+            {k:'タ', r:'ta'}, {k:'チ', r:'chi'}, {k:'ツ', r:'tsu'}, {k:'テ', r:'te'}, {k:'ト', r:'to'},
+            {k:'ナ', r:'na'}, {k:'ニ', r:'ni'}, {k:'ヌ', r:'nu'}, {k:'ネ', r:'ne'}, {k:'ノ', r:'no'},
+            {k:'ハ', r:'ha'}, {k:'ヒ', r:'hi'}, {k:'フ', r:'fu'}, {k:'ヘ', r:'he'}, {k:'ホ', r:'ho'},
+            {k:'マ', r:'ma'}, {k:'ミ', r:'mi'}, {k:'ム', r:'mu'}, {k:'メ', r:'me'}, {k:'モ', r:'mo'},
+            {k:'ヤ', r:'ya'}, {k:'ユ', r:'yu'}, {k:'ヨ', r:'yo'},
+            {k:'ラ', r:'ra'}, {k:'リ', r:'ri'}, {k:'ル', r:'ru'}, {k:'レ', r:'re'}, {k:'ロ', r:'ro'},
+            {k:'ワ', r:'wa'}, {k:'ヲ', r:'wo'}, {k:'ン', r:'n'}
+        ];
+
+        let currentQuestion = {};
+        let score = 0;
+        let isProcessing = false;
+
+        // Fungsi mengacak soal
+        function generateQuestion() {
+            isProcessing = false;
+            
+            // 1. Ambil 1 huruf acak Katakana
+            const randomIndex = Math.floor(Math.random() * katakanaList.length);
+            currentQuestion = katakanaList[randomIndex];
+
+            // Update UI Huruf
+            document.getElementById('target-kana').innerText = currentQuestion.k;
+            
+            // 2. Buat Pilihan Jawaban (1 benar, 3 salah)
+            let options = [currentQuestion.r];
+            while(options.length < 4) {
+                let randomWrong = katakanaList[Math.floor(Math.random() * katakanaList.length)].r;
+                if(!options.includes(randomWrong)) {
+                    options.push(randomWrong);
+                }
+            }
+
+            // 3. Acak urutan tombol pilihan
+            options.sort(() => Math.random() - 0.5);
+
+            // 4. Pasang ke tombol
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach((btn, index) => {
+                btn.innerText = options[index];
+                btn.className = "option-btn bg-white border-2 border-slate-200 hover:border-orange-500 hover:bg-orange-50 p-4 rounded-xl font-bold text-xl text-slate-700 transition-all active:scale-95";
+                btn.disabled = false;
+            });
+
+            document.getElementById('feedback-msg').classList.add('hidden');
+            document.getElementById('question-box').classList.remove('bg-green-100', 'bg-red-100', 'border-green-300', 'border-red-300', 'animate-shake');
+            document.getElementById('question-box').classList.add('bg-slate-100', 'border-slate-200');
+        }
+
+        function checkAnswer(clickedBtn) {
+            if(isProcessing) return;
+            isProcessing = true;
+
+            const selected = clickedBtn.innerText;
+            const questionBox = document.getElementById('question-box');
+            const feedback = document.getElementById('feedback-msg');
+            const buttons = document.querySelectorAll('.option-btn');
+
+            // Matikan tombol lain
+            buttons.forEach(btn => btn.disabled = true);
+
+            if(selected === currentQuestion.r) {
+                // BENAR
+                score += 10;
+                clickedBtn.className = "option-btn bg-green-500 border-2 border-green-600 p-4 rounded-xl font-bold text-xl text-white shadow-lg";
+                questionBox.classList.remove('bg-slate-100', 'border-slate-200');
+                questionBox.classList.add('bg-green-100', 'border-green-300');
+                
+                feedback.innerText = "Benar! ✨";
+                feedback.className = "mt-6 text-center font-bold text-lg text-green-600 block";
+            } else {
+                // SALAH
+                if(score > 0) score -= 5;
+                clickedBtn.className = "option-btn bg-red-500 border-2 border-red-600 p-4 rounded-xl font-bold text-xl text-white shadow-lg";
+                questionBox.classList.remove('bg-slate-100', 'border-slate-200');
+                questionBox.classList.add('bg-red-100', 'border-red-300', 'animate-shake');
+                
+                feedback.innerText = `Salah! Itu huruf "${currentQuestion.r}"`;
+                feedback.className = "mt-6 text-center font-bold text-lg text-red-600 block";
+
+                // Tunjukkan jawaban yang benar
+                buttons.forEach(btn => {
+                    if(btn.innerText === currentQuestion.r) {
+                        btn.classList.add('border-green-500', 'text-green-600', 'bg-green-50');
+                    }
+                });
+            }
+
+            document.getElementById('score-display').innerText = score;
+
+            // Tunggu sebentar lalu ganti soal
+            setTimeout(generateQuestion, 1200);
+        }
+
+        // Jalankan soal pertama saat load
+        window.onload = generateQuestion;
+    </script>
+</body>
+</html>

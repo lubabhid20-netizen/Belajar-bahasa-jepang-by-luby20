@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minna no Nihongo Bab 1 + Audio & Furigana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d32f2f; /* Warna merah Jepang */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 5px;
+        }
+        
+        /* Style untuk Flashcard Kosakata */
+        .flashcard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .flashcard {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 180px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            padding: 5px;
+        }
+        .flashcard:hover {
+            border-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+        }
+        .kanji-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .jp-text {
+            font-size: 14px;
+            color: #444;
+        }
+        .romaji {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .id-text {
+            font-size: 15px;
+            color: #d32f2f;
+            font-weight: bold;
+            display: none; /* Disembunyikan awalnya */
+        }
+
+        /* Style untuk Tata Bahasa & Furigana */
+        .grammar-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .grammar-pattern {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0d47a1;
+        }
+        .grammar-box ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        .grammar-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        /* Styling untuk tag ruby (Furigana) */
+        ruby {
+            ruby-align: center;
+        }
+        rt {
+            font-size: 0.65em;
+            color: #d32f2f;
+            font-weight: normal;
+        }
+
+        /* Style untuk Header Kategori Kosakata */
+        .vocab-category {
+            background-color: #fce4e4;
+            color: #d32f2f;
+            padding: 8px 15px;
+            border-left: 5px solid #d32f2f;
+            border-radius: 4px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #b71c1c; padding: 10px;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: bold; margin-left: 15px;">⬅ Kembali ke Menu</a>
+    </div>
+    
+    <div class="container">
+        <h2>Bab 1 (第 1 課)</h2>
+        <p>Mari kita mulai pelajaran pertama kita! Klik pada kartu untuk mendengar suaranya dan melihat artinya.</p>
+
+        <!-- Bagian Kosakata (Kotoba) -->
+        <h3>Kosakata (ことば)</h3>
+        <p>🔊 Klik kartu untuk memutar audio & melihat arti bahasa Indonesia.</p>
+
+        <!-- KELOMPOK 1: KATA GANTI ORANG -->
+        <div class="vocab-category">👥 Kata Ganti Orang</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'わたし')"><div class="kanji-text">私</div><div class="jp-text">わたし</div><div class="romaji">(watashi)</div><div class="id-text">Saya</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あなた')"><div class="kanji-text">貴方</div><div class="jp-text">あなた</div><div class="romaji">(anata)</div><div class="id-text">Kamu</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あのひと')"><div class="kanji-text">あの人</div><div class="jp-text">あのひと</div><div class="romaji">(ano hito)</div><div class="id-text">Orang itu (biasa)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あのかた')"><div class="kanji-text">あの方</div><div class="jp-text">あのかた</div><div class="romaji">(ano kata)</div><div class="id-text">Orang itu (sopan)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'さん')"><div class="kanji-text">～さん</div><div class="jp-text">～さん</div><div class="romaji">(~san)</div><div class="id-text">Saudara...</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ちゃん')"><div class="kanji-text">～ちゃん</div><div class="jp-text">～ちゃん</div><div class="romaji">(~chan)</div><div class="id-text">Panggilan anak</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'じん')"><div class="kanji-text">～人</div><div class="jp-text">～じん</div><div class="romaji">(~jin)</div><div class="id-text">Orang (Warga Negara)</div></div>
+        </div>
+
+        <!-- KELOMPOK 2: PEKERJAAN & PROFESI -->
+        <div class="vocab-category">💼 Pekerjaan & Status</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'せんせい')"><div class="kanji-text">先生</div><div class="jp-text">せんせい</div><div class="romaji">(sensei)</div><div class="id-text">Guru, dosen</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'きょうし')"><div class="kanji-text">教師</div><div class="jp-text">きょうし</div><div class="romaji">(kyoushi)</div><div class="id-text">Guru (profesi sendiri)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'がくせい')"><div class="kanji-text">学生</div><div class="jp-text">がくせい</div><div class="romaji">(gakusei)</div><div class="id-text">Siswa, murid</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かいしゃいん')"><div class="kanji-text">会社員</div><div class="jp-text">かいしゃいん</div><div class="romaji">(kaishain)</div><div class="id-text">Pegawai perusahaan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しゃいん')"><div class="kanji-text">社員</div><div class="jp-text">しゃいん</div><div class="romaji">(shain)</div><div class="id-text">Pegawai perusahaan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ぎんこういん')"><div class="kanji-text">銀行員</div><div class="jp-text">ぎんこういん</div><div class="romaji">(ginkouin)</div><div class="id-text">Pegawai bank</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いしゃ')"><div class="kanji-text">医者</div><div class="jp-text">いしゃ</div><div class="romaji">(isha)</div><div class="id-text">Dokter</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'けんきゅうしゃ')"><div class="kanji-text">研究者</div><div class="jp-text">けんきゅうしゃ</div><div class="romaji">(kenkyuusha)</div><div class="id-text">Peneliti</div></div>
+        </div>
+
+        <!-- KELOMPOK 3: TEMPAT -->
+        <div class="vocab-category">🏥 Tempat</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'だいがく')"><div class="kanji-text">大学</div><div class="jp-text">だいがく</div><div class="romaji">(daigaku)</div><div class="id-text">Universitas</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'びょういん')"><div class="kanji-text">病院</div><div class="jp-text">びょういん</div><div class="romaji">(byouin)</div><div class="id-text">Rumah sakit</div></div>
+        </div>
+
+        <!-- KELOMPOK 4: KATA TANYA & UMUR -->
+        <div class="vocab-category">❓ Kata Tanya & Umur</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'だれ')"><div class="kanji-text">誰</div><div class="jp-text">だれ</div><div class="romaji">(dare)</div><div class="id-text">Siapa (biasa)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'どなた')"><div class="kanji-text">どなた</div><div class="jp-text">どなた</div><div class="romaji">(donata)</div><div class="id-text">Siapa (sopan)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'さい')"><div class="kanji-text">～歳</div><div class="jp-text">～さい</div><div class="romaji">(~sai)</div><div class="id-text">Umur...</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'なんさい')"><div class="kanji-text">何歳</div><div class="jp-text">なんさい</div><div class="romaji">(nansai)</div><div class="id-text">Umur berapa? (biasa)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おいくつ')"><div class="kanji-text">おいくつ</div><div class="jp-text">おいくつ</div><div class="romaji">(oikutsu)</div><div class="id-text">Umur berapa? (sopan)</div></div>
+        </div>
+
+        <!-- KELOMPOK 5: SALAM & UNGKAPAN -->
+        <div class="vocab-category">🗣️ Salam & Ungkapan</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'はい')"><div class="kanji-text">はい</div><div class="jp-text">はい</div><div class="romaji">(hai)</div><div class="id-text">Iya</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いいえ')"><div class="kanji-text">いいえ</div><div class="jp-text">いいえ</div><div class="romaji">(iie)</div><div class="id-text">Tidak</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'はじめまして')"><div class="kanji-text">初めまして</div><div class="jp-text">はじめまして</div><div class="romaji">(hajimemashite)</div><div class="id-text">Perkenalkan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'からきました')"><div class="kanji-text">～から来ました</div><div class="jp-text">～からきました</div><div class="romaji">(~kara kimashita)</div><div class="id-text">Datang dari...</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'どうぞよろしく')"><div class="kanji-text" style="font-size: 13px;">どうぞよろしく</div><div class="jp-text" style="font-size: 11px;">どうぞよろしく</div><div class="romaji" style="font-size: 11px;">(douzo yoroshiku)</div><div class="id-text">Senang berkenalan dengan Anda</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しつれいですが')"><div class="kanji-text" style="font-size: 13px;">失礼ですが</div><div class="jp-text" style="font-size: 11px;">しつれいですが</div><div class="romaji" style="font-size: 11px;">(shitsurei desu ga)</div><div class="id-text">Permisi</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'おなまえは')"><div class="kanji-text" style="font-size: 13px;">お名前は</div><div class="jp-text" style="font-size: 11px;">おなまえは</div><div class="romaji" style="font-size: 11px;">(onamae wa)</div><div class="id-text">Nama anda siapa?</div></div>
+        </div>
+
+        <!-- KELOMPOK 6: NEGARA -->
+        <div class="vocab-category">🌎 Nama Negara</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'アメリカ')"><div class="kanji-text">アメリカ</div><div class="jp-text">アメリカ</div><div class="romaji">(amerika)</div><div class="id-text">Amerika</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'イギリス')"><div class="kanji-text">イギリス</div><div class="jp-text">イギリス</div><div class="romaji">(igirisu)</div><div class="id-text">Inggris</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'インド')"><div class="kanji-text">インド</div><div class="jp-text">インド</div><div class="romaji">(indo)</div><div class="id-text">India</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'インドネシア')"><div class="kanji-text">インドネシア</div><div class="jp-text">インドネシア</div><div class="romaji">(indoneshia)</div><div class="id-text">Indonesia</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かんこく')"><div class="kanji-text">韓国</div><div class="jp-text">かんこく</div><div class="romaji">(kankoku)</div><div class="id-text">Korea</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ちゅうごく')"><div class="kanji-text">中国</div><div class="jp-text">ちゅうごく</div><div class="romaji">(chuugoku)</div><div class="id-text">China</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ドイツ')"><div class="kanji-text">ドイツ</div><div class="jp-text">ドイツ</div><div class="romaji">(doitsu)</div><div class="id-text">Jerman</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'にほん')"><div class="kanji-text">日本</div><div class="jp-text">にほん</div><div class="romaji">(nihon)</div><div class="id-text">Jepang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ふらんす')"><div class="kanji-text">フランス</div><div class="jp-text">フランス</div><div class="romaji">(furansu)</div><div class="id-text">Perancis</div></div>
+        </div>
+
+        <br><br>
+
+        <!-- Bagian Tata Bahasa (Bunpou) Lengkap dengan Furigana -->
+        <h2>Tata Bahasa (ぶんぽう)</h2>
+        
+        <div class="grammar-box">
+            <div class="grammar-pattern">1. Kata Benda₁ は Kata Benda₂ です</div>
+            <p>Partikel <b>は (wa)</b> menunjukkan bahwa kata sebelumnya adalah topik kalimat (Subjek). Ditulis dengan huruf *ha*, tetapi dibaca <b>wa</b>.</p>
+            <p><b>です (desu)</b> menyatakan predikat yang menunjukkan kesopanan, penilaian, dan kepastian.</p>
+            <ul>
+                <li><ruby>私<rt>わたし</rt></ruby> <b>は</b> マイク・ミラー <b>です</b>。<br>👉 Saya adalah Mike Miller.</li>
+                <li><ruby>私<rt>わたし</rt></ruby> <b>は</b> <ruby>会社員<rt>かいしゃいん</rt></ruby> <b>です</b>。<br>👉 Saya pegawai perusahaan.</li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">2. Kata Benda₁ は Kata Benda₂ じゃ(でわ) ありません</div>
+            <p>Bentuk negatif dari <b>です</b>. Dalam percakapan sehari-hari menggunakan <b>じゃありません</b>, sedangkan dalam situasi resmi menggunakan <b>ではありません</b>.</p>
+            <ul>
+                <li>サントスさん <b>は</b> <ruby>学生<rt>がくせい</rt></ruby> <b>じゃありません</b>。<br>👉 Sdr. Santos bukan mahasiswa.</li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">3. Kata Benda₁ は Kata Benda₂ ですか (Kalimat Tanya)</div>
+            <p>Partikel <b>か (ka)</b> diletakkan di akhir kalimat untuk mengubah pernyataan menjadi kalimat tanya (diikuti intonasi naik).</p>
+            <ul>
+                <li>
+                    ミラーさん <b>は</b> <ruby>米国人<rt>べいこくじん</rt></ruby> <b>ですか</b>。<br>👉 Apakah Sdr. Miller orang Amerika?<br>
+                    ……はい、<ruby>米国人<rt>べいこくじん</rt></ruby>です。<br>👉 ……Ya, orang Amerika.
+                </li>
+                <br>
+                <li>
+                    ミラーさん <b>は</b> <ruby>先生<rt>せんせい</rt></ruby> <b>ですか</b>。<br>👉 Apakah Sdr. Miller guru?<br>
+                    ……いいえ、<ruby>先生<rt>せんせい</rt></ruby>じゃありません。<br>👉 ……Bukan, dia bukan guru.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">4. Kata Benda も</div>
+            <p>Partikel <b>も (mo)</b> digunakan apabila menyatakan predikatnya sama dengan hal yang disebutkan sebelumnya ("juga").</p>
+            <ul>
+                <li>ミラーさんは <ruby>会社員<rt>かいしゃいん</rt></ruby>です。グプタさん <b>も</b> <ruby>会社員<rt>かいしゃいん</rt></ruby>です。<br>👉 Sdr. Miller pegawai perusahaan. Sdr. Gupta juga pegawai perusahaan.</li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">5. Kata Benda₁ の Kata Benda₂</div>
+            <p>Digunakan untuk menggabungkan dua kata benda, di mana Kata Benda₁ menerangkan spesifikasi dari Kata Benda₂.</p>
+            <ul>
+                <li>ミラーさん <b>は</b> IMC <b>の</b> <ruby>社員<rt>しゃいん</rt></ruby>です。<br>👉 Sdr. Miller adalah pegawai perusahaan IMC.</li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">6. ~ さん</div>
+            <p>Akhiran <b>さん (~san)</b> disematkan di belakang nama orang untuk menunjukkan rasa hormat/kesopanan. Tidak boleh digunakan untuk diri sendiri.</p>
+            <ul>
+                <li>あの方 <b>は</b> ミラーさん <b>です</b>。<br>👉 Beliau adalah Sdr. Miller.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Script untuk efek interaktif flashcard & Audio Speech Synthesis -->
+    <script>
+        // Fungsi untuk melafalkan suara Jepang
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Fungsi flip card sekaligus membunyikan audio
+        function flipCard(card, jpWord) {
+            // Putar suara teks Jepang
+            speakText(jpWord);
+
+            let indonesianText = card.querySelector('.id-text');
+            let romajiText = card.querySelector('.romaji');
+            let jpText = card.querySelector('.jp-text');
+            let kanjiText = card.querySelector('.kanji-text');
+            
+            if (indonesianText.style.display === 'none' || indonesianText.style.display === '') {
+                indonesianText.style.display = 'block';
+                romajiText.style.display = 'none'; 
+                jpText.style.display = 'none';
+                if(kanjiText) kanjiText.style.display = 'none';
+                card.style.backgroundColor = '#ffebee'; 
+            } else {
+                indonesianText.style.display = 'none';
+                romajiText.style.display = 'block';
+                jpText.style.display = 'block';
+                if(kanjiText) kanjiText.style.display = 'block';
+                card.style.backgroundColor = '#fff';
+            }
+        }
+    </script>
+</body>
+</html>

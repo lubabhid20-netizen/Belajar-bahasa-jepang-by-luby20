@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minna no Nihongo Bab 5 + Audio & Furigana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 5px;
+        }
+        
+        /* Style untuk Flashcard Kosakata */
+        .flashcard-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .flashcard {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 180px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            padding: 5px;
+        }
+        .flashcard:hover {
+            border-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+        }
+        .kanji-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        .jp-text {
+            font-size: 14px;
+            color: #444;
+        }
+        .romaji {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .id-text {
+            font-size: 15px;
+            color: #d32f2f;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Style untuk Tata Bahasa & Furigana */
+        .grammar-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .grammar-pattern {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0d47a1;
+        }
+        .grammar-box ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        .grammar-box li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        /* Styling untuk tag ruby (Furigana) */
+        ruby {
+            ruby-align: center;
+        }
+        rt {
+            font-size: 0.65em;
+            color: #d32f2f;
+            font-weight: normal;
+        }
+
+        /* Style untuk Header Kategori Kosakata */
+        .vocab-category {
+            background-color: #fce4e4;
+            color: #d32f2f;
+            padding: 8px 15px;
+            border-left: 5px solid #d32f2f;
+            border-radius: 4px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #b71c1c; padding: 10px;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: bold; margin-left: 15px;">⬅ Kembali ke Menu</a>
+    </div>
+    
+    <div class="container">
+        <h2>Bab 5 (第 5 課)</h2>
+        <p>Mari belajar kata kerja perpindahan (pergi, datang, pulang), sarana transportasi, dan waktu/tanggal! Klik pada kartu untuk mendengar suara dan melihat artinya.</p>
+
+        <!-- Bagian Kosakata (Kotoba) -->
+        <h3>Kosakata (ことば)</h3>
+        <p>🔊 Klik kartu untuk memutar audio & melihat arti bahasa Indonesia.</p>
+
+        <!-- KELOMPOK 1: KATA KERJA PERPINDAHAN -->
+        <div class="vocab-category">🚶 Kata Kerja Perpindahan (Doushi)</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'いきます')"><div class="kanji-text">行きます</div><div class="jp-text">いきます</div><div class="romaji">(ikimasu)</div><div class="id-text">Pergi</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'きます')"><div class="kanji-text">来ます</div><div class="jp-text">きます</div><div class="romaji">(kimasu)</div><div class="id-text">Datang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かえります')"><div class="kanji-text">帰ります</div><div class="jp-text">かえります</div><div class="romaji">(kaerimasu)</div><div class="id-text">Pulang</div></div>
+        </div>
+
+        <!-- KELOMPOK 2: TEMPAT -->
+        <div class="vocab-category">🏫 Tempat & Fasilitas</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'がっこう')"><div class="kanji-text">学校</div><div class="jp-text">がっこう</div><div class="romaji">(gakkou)</div><div class="id-text">Sekolah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'スーパー')"><div class="kanji-text">スーパー</div><div class="jp-text">スーパー</div><div class="romaji">(suupaa)</div><div class="id-text">Pasar swalayan / Supermarket</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'えき')"><div class="kanji-text">駅</div><div class="jp-text">えき</div><div class="romaji">(eki)</div><div class="id-text">Stasiun</div></div>
+        </div>
+
+        <!-- KELOMPOK 3: TRANSPORTASI -->
+        <div class="vocab-category">🚆 Kendaraan & Sarana Transportasi</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'ひこうき')"><div class="kanji-text">飛行機</div><div class="jp-text">ひこうき</div><div class="romaji">(hikouki)</div><div class="id-text">Pesawat terbang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ふね')"><div class="kanji-text">船</div><div class="jp-text">ふね</div><div class="romaji">(fune)</div><div class="id-text">Kapal laut</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'でんしゃ')"><div class="kanji-text">電車</div><div class="jp-text">でんしゃ</div><div class="romaji">(densha)</div><div class="id-text">Kereta rel listrik (KRL)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ちかてつ')"><div class="kanji-text">地下鉄</div><div class="jp-text">ちかてつ</div><div class="romaji">(chikatetsu)</div><div class="id-text">Kereta bawah tanah</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'しんかんせん')"><div class="kanji-text">新幹線</div><div class="jp-text">しんかんせん</div><div class="romaji">(shinkansen)</div><div class="id-text">Shinkansen (Kereta cepat)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'バス')"><div class="kanji-text">バス</div><div class="jp-text">バス</div><div class="romaji">(basu)</div><div class="id-text">Bus</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'タクシー')"><div class="kanji-text">タクシー</div><div class="jp-text">タクシー</div><div class="romaji">(takushii)</div><div class="id-text">Taksi</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'じてんしゃ')"><div class="kanji-text">自転車</div><div class="jp-text">じてんしゃ</div><div class="romaji">(jitensha)</div><div class="id-text">Sepeda</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'あるいて')"><div class="kanji-text">歩いて</div><div class="jp-text">あるいて</div><div class="romaji">(aruite)</div><div class="id-text">Dengan berjalan kaki</div></div>
+        </div>
+
+        <!-- KELOMPOK 4: ORANG & KELUARGA -->
+        <div class="vocab-category">👥 Orang & Relasi</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'ひと')"><div class="kanji-text">人</div><div class="jp-text">ひと</div><div class="romaji">(hito)</div><div class="id-text">Orang</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ともだち')"><div class="kanji-text">友達</div><div class="jp-text">ともだち</div><div class="romaji">(tomodachi)</div><div class="id-text">Teman</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かれ')"><div class="kanji-text">彼</div><div class="jp-text">かれ</div><div class="romaji">(kare)</div><div class="id-text">Dia / Pacar (laki-laki)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かのじょ')"><div class="kanji-text">彼女</div><div class="jp-text">かのじょ</div><div class="romaji">(kanojo)</div><div class="id-text">Dia / Pacar (perempuan)</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'かぞく')"><div class="kanji-text">家族</div><div class="jp-text">かぞく</div><div class="romaji">(kazoku)</div><div class="id-text">Keluarga</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ひとりで')"><div class="kanji-text">一人で</div><div class="jp-text">ひとりで</div><div class="romaji">(hitori de)</div><div class="id-text">Sendirian / Dengan sendiri</div></div>
+        </div>
+
+        <!-- KELOMPOK 5: WAKTU / BULAN / TAHUN -->
+        <div class="vocab-category">📅 Waktu, Bulan & Tahun</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'せんしゅう')"><div class="kanji-text">先週</div><div class="jp-text">せんしゅう</div><div class="romaji">(senshuu)</div><div class="id-text">Minggu lalu</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'こんしゅう')"><div class="kanji-text">今週</div><div class="jp-text">こんしゅう</div><div class="romaji">(konshuu)</div><div class="id-text">Minggu ini</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'らいしゅう')"><div class="kanji-text">来週</div><div class="jp-text">らいしゅう</div><div class="romaji">(raishuu)</div><div class="id-text">Minggu depan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'せんげつ')"><div class="kanji-text">先月</div><div class="jp-text">せんげつ</div><div class="romaji">(sengetsu)</div><div class="id-text">Bulan lalu</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'こんげつ')"><div class="kanji-text">今月</div><div class="jp-text">こんげつ</div><div class="romaji">(kongetsu)</div><div class="id-text">Bulan ini</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'らいげつ')"><div class="kanji-text">来月</div><div class="jp-text">らいげつ</div><div class="romaji">(raigetsu)</div><div class="id-text">Bulan depan</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'きょねん')"><div class="kanji-text">去年</div><div class="jp-text">きょねん</div><div class="romaji">(kyonen)</div><div class="id-text">Tahun lalu</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ことし')"><div class="kanji-text">今年</div><div class="jp-text">ことし</div><div class="romaji">(kotoshi)</div><div class="id-text">Tahun ini</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'らいねん')"><div class="kanji-text">来年</div><div class="jp-text">らいねん</div><div class="romaji">(rainen)</div><div class="id-text">Tahun depan</div></div>
+        </div>
+
+        <!-- KELOMPOK 6: TANGGAL & HARI BULAN -->
+        <div class="vocab-category">🗓️ Tanggal & Hari dalam Sebulan</div>
+        <div class="flashcard-container">
+            <div class="flashcard" onclick="flipCard(this, 'ついたち')"><div class="kanji-text">1日</div><div class="jp-text">ついたち</div><div class="romaji">(tsuitachi)</div><div class="id-text">Tanggal 1</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ふつか')"><div class="kanji-text">2日</div><div class="jp-text">ふつか</div><div class="romaji">(futsuka)</div><div class="id-text">Tanggal 2 / 2 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'みっか')"><div class="kanji-text">3日</div><div class="jp-text">みっか</div><div class="romaji">(mikka)</div><div class="id-text">Tanggal 3 / 3 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'よっか')"><div class="kanji-text">4日</div><div class="jp-text">よっか</div><div class="romaji">(yokka)</div><div class="id-text">Tanggal 4 / 4 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いつか')"><div class="kanji-text">5日</div><div class="jp-text">いつか</div><div class="romaji">(itsuka)</div><div class="id-text">Tanggal 5 / 5 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'むいか')"><div class="kanji-text">6日</div><div class="jp-text">むいか</div><div class="romaji">(muika)</div><div class="id-text">Tanggal 6 / 6 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'なのか')"><div class="kanji-text">7日</div><div class="jp-text">なのか</div><div class="romaji">(nanoka)</div><div class="id-text">Tanggal 7 / 7 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ようか')"><div class="kanji-text">8日</div><div class="jp-text">ようか</div><div class="romaji">(youka)</div><div class="id-text">Tanggal 8 / 8 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'ここのか')"><div class="kanji-text">9日</div><div class="jp-text">ここのか</div><div class="romaji">(kokonoka)</div><div class="id-text">Tanggal 9 / 9 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'とおか')"><div class="kanji-text">10日</div><div class="jp-text">とおか</div><div class="romaji">(tooka)</div><div class="id-text">Tanggal 10 / 10 hari</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'じゅうよっか')"><div class="kanji-text">14日</div><div class="jp-text">じゅうよっか</div><div class="romaji">(juuyokka)</div><div class="id-text">Tanggal 14</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'はつか')"><div class="kanji-text">20日</div><div class="jp-text">はつか</div><div class="romaji">(hatsuka)</div><div class="id-text">Tanggal 20</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'にじゅうよっか')"><div class="kanji-text">24日</div><div class="jp-text">にじゅうよっか</div><div class="romaji">(nijuyokka)</div><div class="id-text">Tanggal 24</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'たんじょうび')"><div class="kanji-text">誕生日</div><div class="jp-text">たんじょうび</div><div class="romaji">(tanjoubi)</div><div class="id-text">Hari ulang tahun</div></div>
+            <div class="flashcard" onclick="flipCard(this, 'いつ')"><div class="kanji-text">いつ</div><div class="jp-text">いつ</div><div class="romaji">(itsu)</div><div class="id-text">Kapan</div></div>
+        </div>
+
+        <br><br>
+
+        <!-- Bagian Tata Bahasa (Bunpou) Bab 5 dengan Furigana -->
+        <h2>Tata Bahasa (ぶんぽう)</h2>
+        
+        <div class="grammar-box">
+            <div class="grammar-pattern">1. Kata Benda (Tempat) へ 行きます / 来ます / 帰ります</div>
+            <p>Partikel <b>へ (e)</b> menunjukkan arah atau tujuan perpindahan. (Ditulis dengan huruf <i>he</i>, namun dibaca <b>e</b>).</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan:<br>
+                    <ruby>どこ<rt></rt></ruby> <b>へ</b> <ruby>行<rt>い</rt></ruby>きますか。<br>
+                    👉 Pergi ke mana?
+                </li>
+                <br>
+                <li>
+                    Contoh Jawaban:<br>
+                    ……<ruby>京都<rt>きょうと</rt></ruby> <b>へ</b> <ruby>行<rt>い</rt></ruby>きます。<br>
+                    👉 ……Pergi ke Kyoto.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">2. Kata Benda (Kendaraan) で Kata Kerja</div>
+            <p>Partikel <b>で (de)</b> menunjukkan alat atau sarana transportasi yang digunakan.</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan:<br>
+                    <ruby>何<rt>なに</rt></ruby> <b>で</b> <ruby>東京<rt>とうきょう</rt></ruby> へ <ruby>行<rt>い</rt></ruby>きますか。<br>
+                    👉 Dengan apa pergi ke Tokyo?
+                </li>
+                <br>
+                <li>
+                    Contoh Jawaban:<br>
+                    ……<ruby>新幹線<rt>しんかんせん</rt></ruby> <b>で</b> <ruby>行<rt>い</rt></ruby>きます。<br>
+                    👉 ……Pergi dengan Shinkansen.
+                </li>
+                <br>
+                <li>
+                    *Catatan khusus:* Untuk berjalan kaki, digunakan <b>歩いて (aruite)</b> tanpa partikel で.<br>
+                    Contoh: <ruby>駅<rt>えき</rt></ruby>へ <b>歩いて</b> <ruby>行<rt>い</rt></ruby>きます。<br>
+                    👉 Pergi ke stasiun dengan berjalan kaki.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">3. Kata Benda (Orang) と Kata Kerja</div>
+            <p>Partikel <b>と (to)</b> digunakan untuk menyatakan kebersamaan ("bersama dengan...").</p>
+            <ul>
+                <li>
+                    Contoh:<br>
+                    <ruby>家族<rt>かぞく</rt></ruby> <b>と</b> <ruby>日本<rt>にほん</rt></ruby> へ <ruby>来<rt>き</rt></ruby>ました。<br>
+                    👉 Datang ke Jepang bersama keluarga.
+                </li>
+                <br>
+                <li>
+                    *Catatan:* Jika pergi sendirian, gunakan ungkapan <b>一人で (hitori de)</b> tanpa partikel と.<br>
+                    Contoh: <ruby>一人<rt>ひとり</rt></ruby>で <ruby>行<rt>い</rt></ruby>きます。<br>
+                    👉 Pergi sendirian.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">4. いつ (Kapan)</div>
+            <p>Kata tanya untuk menanyakan waktu terjadinya suatu tindakan. <b>Tidak memerlukan</b> partikel に di belakang kata いつ.</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan:<br>
+                    <ruby>日本<rt>にほん</rt></ruby>へ <b>いつ</b> <ruby>来<rt>き</rt></ruby>ましたか。<br>
+                    👉 Kapan datang ke Jepang?
+                </li>
+                <br>
+                <li>
+                    Contoh Jawaban:<br>
+                    ……<ruby>3月<rt>さんがつ</rt></ruby> <ruby>25日<rt>にじゅうごにち</rt></ruby> に <ruby>来<rt>き</rt></ruby>ました。<br>
+                    👉 ……Datang pada tanggal 25 Maret.
+                </li>
+            </ul>
+        </div>
+
+        <div class="grammar-box">
+            <div class="grammar-pattern">5. ~ よ (Partikel Penekan / Penegasan)</div>
+            <p>Partikel <b>よ (yo)</b> diletakkan di akhir kalimat untuk meyakinkan pendengar atau menyampaikan informasi baru yang belum diketahui lawan bicara.</p>
+            <ul>
+                <li>
+                    Contoh Pertanyaan:<br>
+                    この <ruby>電車<rt>でんしゃ</rt></ruby> は <ruby>甲子園<rt>こうしえん</rt></ruby> へ <ruby>行<rt>い</rt></ruby>きますか。<br>
+                    👉 Apakah kereta ini pergi ke Koshien?
+                </li>
+                <br>
+                <li>
+                    Contoh Jawaban:<br>
+                    ……いいえ、<ruby>次<rt>つぎ</rt></ruby>の <ruby>普通<rt>ふつう</rt></ruby> です <b>よ</b>。<br>
+                    👉 ……Bukan, (kereta) lokal berikutnya lho.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Script untuk efek interaktif flashcard & Audio -->
+    <script>
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'ja-JP';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function flipCard(card, jpWord) {
+            speakText(jpWord);
+
+            let indonesianText = card.querySelector('.id-text');
+            let romajiText = card.querySelector('.romaji');
+            let jpText = card.querySelector('.jp-text');
+            let kanjiText = card.querySelector('.kanji-text');
+            
+            if (indonesianText.style.dis
